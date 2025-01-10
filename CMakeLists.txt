@@ -7,21 +7,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
-qt_add_executable(appportfolio
+qt_add_executable(portfolio
     main.cpp
 )
 
-qt_add_qml_module(appportfolio
+qt_add_qml_module(portfolio
     URI portfolio
     VERSION 1.0
     QML_FILES main.qml
     QML_FILES components/profileCard.qml
+    SOURCES colorlist.h colorlist.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
-set_target_properties(appportfolio PROPERTIES
+set_target_properties(portfolio PROPERTIES
 #    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appportfolio
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -29,10 +30,10 @@ set_target_properties(appportfolio PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-target_link_libraries(appportfolio
+target_link_libraries(portfolio
     PRIVATE Qt6::Quick)
 
 include(GNUInstallDirs)
-install(TARGETS appportfolio
+install(TARGETS portfolio
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

@@ -1,11 +1,16 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "colorlist.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+    //Source files registered to connection into QML:
+    qmlRegisterType<ColorList>("com.colors", 1, 0, "ColorList");
+
     const QUrl url(u"qrc:/portfolio/main.qml"_qs);
     QObject::connect(
         &engine,
