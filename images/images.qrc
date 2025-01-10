@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="profilepic">profilepic.png</file>
+    </qresource>
+    <qresource prefix="/bg">
+        <file alias="bgCard">pexels-hngstrm-1939485.jpg</file>
+    </qresource>
+</RCC>

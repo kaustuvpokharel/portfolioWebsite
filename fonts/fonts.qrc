@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Poppins-Black.ttf</file>
+        <file>Poppins-BlackItalic.ttf</file>
+        <file>Poppins-Bold.ttf</file>
+        <file>Poppins-BoldItalic.ttf</file>
+        <file>Poppins-ExtraBold.ttf</file>
+        <file>Poppins-ExtraBoldItalic.ttf</file>
+        <file>Poppins-ExtraLight.ttf</file>
+        <file>Poppins-ExtraLightItalic.ttf</file>
+        <file>Poppins-Italic.ttf</file>
+        <file>Poppins-Light.ttf</file>
+        <file>Poppins-LightItalic.ttf</file>
+        <file>Poppins-Medium.ttf</file>
+        <file>Poppins-MediumItalic.ttf</file>
+        <file>Poppins-Regular.ttf</file>
+        <file>Poppins-SemiBold.ttf</file>
+        <file>Poppins-SemiBoldItalic.ttf</file>
+        <file>Poppins-Thin.ttf</file>
+        <file>Poppins-ThinItalic.ttf</file>
+    </qresource>
+</RCC>
