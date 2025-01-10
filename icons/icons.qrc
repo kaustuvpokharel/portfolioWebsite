@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="behanceIcon1">behanceIcon.png</file>
+        <file alias="emailIcon1">emailIcon.png</file>
+        <file alias="githubIcon1">githubIcon.png</file>
+        <file alias="linkedIcon1">linkedIcon.png</file>
+        <file alias="youtubeIcon1">youtubeIcon.png</file>
+    </qresource>
+    <qresource prefix="/iconsStrong">
+        <file alias="behanceIcon">mage_behance.png</file>
+        <file alias="emailIcon">mage_email-fill.png</file>
+        <file alias="githubIcon">mdi_github.png</file>
+        <file alias="linkedIcon">mdi_linkedin.png</file>
+        <file alias="youtubeIcon">mdi_youtube.png</file>
+    </qresource>
+</RCC>
