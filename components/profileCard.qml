@@ -86,56 +86,6 @@ Rectangle
         }
 
 
-        RowLayout
-        {
-            spacing: 20
-            Layout.topMargin: 15
-            Layout.alignment: Qt.AlignCenter
-            Image {
-                id: githubIcon
-                source: "qrc:/iconsStrong/githubIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
 
-            Image {
-                id: linkedInIcon
-                source: "qrc:/iconsStrong/linkedIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image {
-                id: youtubeIcon
-                source: "qrc:/iconsStrong/youtubeIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image {
-                id: behanceIcon
-                source: "qrc:/iconsStrong/behanceIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image
-            {
-                id:emailIcon
-                source: "qrc:/iconsStrong/emailIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-        }
     }
 }

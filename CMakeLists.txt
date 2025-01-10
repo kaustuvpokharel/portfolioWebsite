@@ -21,6 +21,7 @@ qt_add_qml_module(portfolio
     RESOURCES images/images.qrc
     RESOURCES icons/icons.qrc
     RESOURCES fonts/fonts.qrc
+    QML_FILES components/Header.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
