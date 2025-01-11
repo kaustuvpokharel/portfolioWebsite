@@ -5,4 +5,7 @@
     <qresource prefix="/bg">
         <file alias="bgCard">pexels-hngstrm-1939485.jpg</file>
     </qresource>
+    <qresource prefix="/projects">
+        <file alias="rocketifyImg">rocketify.png</file>
+    </qresource>
 </RCC>
