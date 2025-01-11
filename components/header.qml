@@ -6,8 +6,8 @@ import Qt5Compat.GraphicalEffects
 Rectangle
 {
     id: header
-    width: 280
-    height: 40
+    width: 270
+    height: 50
     color: pullc.color("gray")
     radius: 10
     anchors.horizontalCenter: parent.horizontalCenter

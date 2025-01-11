@@ -40,6 +40,22 @@ Window {
         source: "qrc:/Poppins-Medium.ttf"
     }
 
+    FontLoader
+    {
+        id: pBlack
+        source: "qrc:/Poppins-Black.ttf"
+    }
+    FontLoader
+    {
+        id: pRegular
+        source: "qrc:/Poppins-Regular.ttf"
+    }
+    FontLoader
+    {
+        id: pSemibold
+        source: "qrc:/Poppins-SemiBold.ttf"
+    }
+
     Header
     {
         id:headerComponent
@@ -63,7 +79,7 @@ Window {
             {
                 id: profilecard
                 Layout.alignment: Qt.AlignTop
-                Layout.topMargin: 200
+                Layout.topMargin: 140
             }
 
             Flickable
@@ -79,7 +95,22 @@ Window {
                     width: 700
                     height: 2000
                     color: "red"
+                    visible: false
                 }
+
+                ColumnLayout
+                {
+                    SoftwareEng
+                    {
+                        id: softwareEngComponent
+                    }
+
+                    SoftwareEng
+                    {
+                        id: softwareEngComponent2
+                    }
+                }
+
             }
         }
     }
