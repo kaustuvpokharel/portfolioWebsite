@@ -14,7 +14,7 @@ private:
     {
         {"white", "#F2F2F2"},
         {"black", "#151312"},
-        {"neon", "#CFFF04"},
+        {"neon", "#79BD29"},
         {"gray", "#353334"}
     };
 

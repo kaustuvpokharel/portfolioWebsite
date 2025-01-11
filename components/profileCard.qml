@@ -85,12 +85,11 @@ Rectangle
             }
         }
 
-
         RowLayout
         {
             spacing: 20
-            Layout.topMargin: 15
             Layout.alignment: Qt.AlignCenter
+            Layout.topMargin: 15
             Image {
                 id: githubIcon
                 source: "qrc:/iconsStrong/githubIcon"

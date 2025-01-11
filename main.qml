@@ -40,67 +40,25 @@ Window {
         source: "qrc:/Poppins-Medium.ttf"
     }
 
-    Rectangle
+    FontLoader
     {
-        width: 280
-        height: 40
-        color: pullc.color("gray")
-        radius: 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.topMargin: 30
-        z : 1
-        RowLayout
-        {
-            spacing: 20
-            anchors.centerIn: parent
+        id: pBlack
+        source: "qrc:/Poppins-Black.ttf"
+    }
+    FontLoader
+    {
+        id: pRegular
+        source: "qrc:/Poppins-Regular.ttf"
+    }
+    FontLoader
+    {
+        id: pSemibold
+        source: "qrc:/Poppins-SemiBold.ttf"
+    }
 
-            Image {
-                id: githubIcon
-                source: "qrc:/iconsStrong/githubIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image {
-                id: linkedInIcon
-                source: "qrc:/iconsStrong/linkedIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image {
-                id: youtubeIcon
-                source: "qrc:/iconsStrong/youtubeIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image {
-                id: behanceIcon
-                source: "qrc:/iconsStrong/behanceIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-
-            Image
-            {
-                id:emailIcon
-                source: "qrc:/iconsStrong/emailIcon"
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-            }
-        }
+    Header
+    {
+        id:headerComponent
     }
 
     Flickable
@@ -116,11 +74,12 @@ Window {
         {
             spacing: 100
             anchors.centerIn: parent
+
             ProfileCard
             {
                 id: profilecard
                 Layout.alignment: Qt.AlignTop
-                Layout.topMargin: 200
+                Layout.topMargin: 140
             }
 
             Flickable
@@ -136,9 +95,23 @@ Window {
                     width: 700
                     height: 2000
                     color: "red"
+                    visible: false
                 }
+
+                ColumnLayout
+                {
+                    SoftwareEng
+                    {
+                        id: softwareEngComponent
+                    }
+
+                    SoftwareEng
+                    {
+                        id: softwareEngComponent2
+                    }
+                }
+
             }
         }
     }
-
 }
