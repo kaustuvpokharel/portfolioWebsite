@@ -38,10 +38,13 @@ ColumnLayout
         Text
         {
             id:discript
-            text: qsTr("Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.")
+            text: qsTr("<html><b>Core Skills:</b> C++, C language, CMake, Linux, Git, Github, Jira, Blender 3D<br />
+<b>Frameworks/Libraries:</b> QT, QML, Vulkan, STL, Socket, Boost, Tensorflow, Pcap, OpenCL, OpenCV<br />
+<b>Basic Skills:</b> Python, JavaScript, HTML, CSS, SQL, Microsoft Azure, Figma, Confluence<br />
+<b>Concepts:</b> Agile Methods, OOP, Graphics Programming, Parallel/Concurrent Programming, Multi-threading, Memory Management, Unit Test, Scrum, CI/CD</html>")
             font.family: pRegular.name
-            font.pixelSize: 17
-            // horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: 16
+            horizontalAlignment: Text.AlignJustify
             width: 650
             color: pullc.color("white")
             wrapMode: Text.Wrap
@@ -55,7 +58,7 @@ ColumnLayout
         columns: 3
         columnSpacing: 30
         rowSpacing: -10
-        Layout.topMargin: 10
+        Layout.topMargin: 100
         Text {
             id: yieNum
             text: qsTr("+3")
