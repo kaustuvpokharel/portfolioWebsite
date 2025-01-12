@@ -53,7 +53,7 @@ Window {
     FontLoader
     {
         id: pSemibold
-        source: "qrc:/Poppins-SemiBold.ttf"
+        source: "qrc:/Poppins-MediumItalic.ttf"
     }
 
     Header
@@ -87,13 +87,13 @@ Window {
                 height: 1080
                 width: 700
                 contentWidth: 700
-                contentHeight: 3000
+                contentHeight: 4000
                 clip: true
                 Rectangle
                 {
                     id: contents
                     width: 700
-                    height: 3000
+                    height: 4000
                     color: "red"
                     visible: false
                 }
@@ -109,8 +109,12 @@ Window {
                     {
                         id: projectComponent
                     }
-                }
 
+                    Experience
+                    {
+                        id: experienceComponent
+                    }
+                }
             }
         }
     }
