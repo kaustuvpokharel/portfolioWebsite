@@ -6,7 +6,7 @@ import Qt5Compat.GraphicalEffects
 Rectangle
 {
     id: header
-    width: 270
+    width: 280
     height: 50
     color: pullc.color("gray")
     radius: 10
@@ -16,12 +16,30 @@ Rectangle
     z : 1
     RowLayout
     {
-        spacing: 20
+        spacing: 30
         anchors.centerIn: parent
 
         Image {
-            id: githubIcon
-            source: "qrc:/iconsStrong/githubIcon"
+            id: homeIcon
+            source: "qrc:/header/home"
+            Layout.preferredWidth: 27
+            Layout.preferredHeight: 27
+            smooth: true
+            fillMode: Image.PreserveAspectFit
+        }
+
+        Image {
+            id: projectIcon
+            source: "qrc:/header/project"
+            Layout.preferredWidth: 24
+            Layout.preferredHeight: 24
+            smooth: true
+            fillMode: Image.PreserveAspectFit
+        }
+
+        Image {
+            id: experienceIcon
+            source: "qrc:/header/experience"
             Layout.preferredWidth: 25
             Layout.preferredHeight: 25
             smooth: true
@@ -29,26 +47,8 @@ Rectangle
         }
 
         Image {
-            id: linkedInIcon
-            source: "qrc:/iconsStrong/linkedIcon"
-            Layout.preferredWidth: 25
-            Layout.preferredHeight: 25
-            smooth: true
-            fillMode: Image.PreserveAspectFit
-        }
-
-        Image {
-            id: youtubeIcon
-            source: "qrc:/iconsStrong/youtubeIcon"
-            Layout.preferredWidth: 25
-            Layout.preferredHeight: 25
-            smooth: true
-            fillMode: Image.PreserveAspectFit
-        }
-
-        Image {
-            id: behanceIcon
-            source: "qrc:/iconsStrong/behanceIcon"
+            id: educationIcon
+            source: "qrc:/header/education"
             Layout.preferredWidth: 25
             Layout.preferredHeight: 25
             smooth: true
@@ -57,8 +57,8 @@ Rectangle
 
         Image
         {
-            id:emailIcon
-            source: "qrc:/iconsStrong/emailIcon"
+            id:contactIcon
+            source: "qrc:/header/contact"
             Layout.preferredWidth: 25
             Layout.preferredHeight: 25
             smooth: true

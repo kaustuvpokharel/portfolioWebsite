@@ -96,6 +96,29 @@ ColumnLayout
                     opacity: 0.5
                 }
             }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    onhoverrect1.color = pullc.color("gray")
+                }
+
+                onExited:
+                {
+                    onhoverrect1.color = "Transparent"
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://www.senecapolytechnic.ca/home.html")
+                }
+            }
         }
 
     }

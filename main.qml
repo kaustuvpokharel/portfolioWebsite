@@ -8,7 +8,7 @@ import "./components"
 Window {
     id:window
     width: 1920
-    height: 1080
+    height: Screen.height
     visible: true
     title: qsTr("Kaustuv Pokharel")
     Rectangle

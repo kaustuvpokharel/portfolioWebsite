@@ -185,10 +185,11 @@ ColumnLayout
                 anchors.left: parent.left
                 anchors.topMargin: 30
                 anchors.leftMargin: 30
+                spacing: 10
 
                 Image {
                     id: rIcon
-                    source: "qrc:/iconsStrong/githubIcon"
+                    source: "qrc:/softwareEng/resume"
                     Layout.preferredWidth: 45
                     Layout.preferredHeight: 45
                     smooth: true
@@ -215,6 +216,29 @@ ColumnLayout
 
             }
 
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    resume.opacity = 0.7
+                }
+
+                onExited:
+                {
+                    resume.opacity = 1
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://dev.to/kastuv")
+                }
+            }
+
         }
 
         Rectangle
@@ -224,6 +248,7 @@ ColumnLayout
             radius: 10
             width: 360
             height: 250
+            opacity: 1
             // Image {
             //     id: bgImage1
             //     source: "qrc:/bg/bgCard"
@@ -252,10 +277,11 @@ ColumnLayout
                 anchors.left: parent.left
                 anchors.topMargin: 30
                 anchors.leftMargin: 30
+                spacing: 5
 
                 Image {
                     id: ytIcon
-                    source: "qrc:/iconsStrong/githubIcon"
+                    source: "qrc:/softwareEng/article"
                     Layout.preferredWidth: 45
                     Layout.preferredHeight: 45
                     smooth: true
@@ -270,16 +296,39 @@ ColumnLayout
                     Text
                     {
                         id: yText
-                        text: qsTr("RESUME it is—roast or toast?")
+                        text: qsTr("Blogs it is—roast or toast?")
                         font.family: pSemibold.name
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
                         width: 250
-                        color: pullc.color("gray")
+                        color: pullc.color("black")
                         wrapMode: Text.Wrap
                     }
                 }
 
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    youtube.opacity = 0.7
+                }
+
+                onExited:
+                {
+                    youtube.opacity = 1
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://dev.to/kastuv")
+                }
             }
 
         }

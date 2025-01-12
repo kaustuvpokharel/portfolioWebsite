@@ -1,16 +1,20 @@
 <RCC>
-    <qresource prefix="/">
-        <file alias="behanceIcon1">behanceIcon.png</file>
-        <file alias="emailIcon1">emailIcon.png</file>
-        <file alias="githubIcon1">githubIcon.png</file>
-        <file alias="linkedIcon1">linkedIcon.png</file>
-        <file alias="youtubeIcon1">youtubeIcon.png</file>
-    </qresource>
     <qresource prefix="/iconsStrong">
-        <file alias="behanceIcon">mage_behance.png</file>
-        <file alias="emailIcon">mage_email-fill.png</file>
-        <file alias="githubIcon">mdi_github.png</file>
-        <file alias="linkedIcon">mdi_linkedin.png</file>
-        <file alias="youtubeIcon">mdi_youtube.png</file>
+        <file alias="behanceIcon">basil_behance-outline.png</file>
+        <file alias="linkedIcon">basil_linkedin-outline.png</file>
+        <file alias="githubIcon">line-md_github.png</file>
+        <file alias="youtubeIcon">line-md_youtube.png</file>
+        <file alias="emailIcon">material-symbols_mail-outline.png</file>
+    </qresource>
+    <qresource prefix="/header">
+        <file alias="experience">lucide_briefcase.png</file>
+        <file alias="home">material-symbols_home-outline.png</file>
+        <file alias="contact">mdi_message-outline.png</file>
+        <file alias="project">octicon_file-directory-16.png</file>
+        <file alias="education">tdesign_education.png</file>
+    </qresource>
+    <qresource prefix="/softwareEng">
+        <file alias="article">material-symbols_article-outline.png</file>
+        <file alias="resume">qlementine-icons_resume-16.png</file>
     </qresource>
 </RCC>
