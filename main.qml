@@ -114,6 +114,11 @@ Window {
                     {
                         id: experienceComponent
                     }
+
+                    Education
+                    {
+                        id: educationComponent
+                    }
                 }
             }
         }

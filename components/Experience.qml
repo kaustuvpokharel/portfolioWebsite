@@ -32,6 +32,7 @@ ColumnLayout
 
     ColumnLayout
     {
+        Layout.topMargin: -30
         Rectangle
         {
             id: onhoverrect1
