@@ -5,7 +5,7 @@ import Qt5Compat.GraphicalEffects
 
 ColumnLayout
 {
-    Layout.topMargin: 100
+    id:softengLayer
     // anchors.top : parent.top
     // anchors.topMargin: 100
     Text {
@@ -157,27 +157,27 @@ ColumnLayout
             radius: 10
             width: 310
             height: 250
-            Image {
-                id: bgImage
-                source: "qrc:/bg/bgCard"
-                anchors.fill: parent
-                smooth: true
-                fillMode: Image.PreserveAspectCrop
-                opacity: 0.2
-                layer.enabled: true
-                layer.effect: OpacityMask
-                {
-                    maskSource: mask1
-                }
-            }
-            Rectangle
-            {
-                //mask for the background image used inside the profile card
-                id:mask1
-                anchors.fill: parent
-                visible: false
-                radius: 10
-            }
+            // Image {
+            //     id: bgImage
+            //     source: "qrc:/bg/bgCard"
+            //     anchors.fill: parent
+            //     smooth: true
+            //     fillMode: Image.PreserveAspectCrop
+            //     opacity: 0.2
+            //     layer.enabled: true
+            //     layer.effect: OpacityMask
+            //     {
+            //         maskSource: mask1
+            //     }
+            // }
+            // Rectangle
+            // {
+            //     //mask for the background image used inside the profile card
+            //     id:mask1
+            //     anchors.fill: parent
+            //     visible: false
+            //     radius: 10
+            // }
 
             ColumnLayout
             {
@@ -224,27 +224,27 @@ ColumnLayout
             radius: 10
             width: 360
             height: 250
-            Image {
-                id: bgImage1
-                source: "qrc:/bg/bgCard"
-                anchors.fill: parent
-                smooth: true
-                fillMode: Image.PreserveAspectCrop
-                opacity: 0.2
-                layer.enabled: true
-                layer.effect: OpacityMask
-                {
-                    maskSource: mask2
-                }
-            }
-            Rectangle
-            {
-                //mask for the background image used inside the profile card
-                id:mask2
-                anchors.fill: parent
-                visible: false
-                radius: 10
-            }
+            // Image {
+            //     id: bgImage1
+            //     source: "qrc:/bg/bgCard"
+            //     anchors.fill: parent
+            //     smooth: true
+            //     fillMode: Image.PreserveAspectCrop
+            //     opacity: 0.2
+            //     layer.enabled: true
+            //     layer.effect: OpacityMask
+            //     {
+            //         maskSource: mask2
+            //     }
+            // }
+            // Rectangle
+            // {
+            //     //mask for the background image used inside the profile card
+            //     id:mask2
+            //     anchors.fill: parent
+            //     visible: false
+            //     radius: 10
+            // }
 
             ColumnLayout
             {

@@ -6,6 +6,7 @@ import Qt5Compat.GraphicalEffects
 import "./components"
 
 Window {
+    id:window
     width: 1920
     height: 1080
     visible: true
@@ -67,19 +68,22 @@ Window {
         height: parent.height
         contentWidth: parent.width
         contentHeight: parent.height
+        anchors.top: headerComponent.bottom
+        anchors.topMargin: 50
         clip: true  // Prevents content from overflowing
 
 
         RowLayout
         {
             spacing: 100
-            anchors.centerIn: parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
 
             ProfileCard
             {
                 id: profilecard
                 Layout.alignment: Qt.AlignTop
-                Layout.topMargin: 140
+                // Layout.topMargin: 250
             }
 
             Flickable
@@ -87,13 +91,15 @@ Window {
                 height: 1080
                 width: 700
                 contentWidth: 700
-                contentHeight: 4000
+                contentHeight: 4800
                 clip: true
+                Layout.alignment: Qt.AlignTop
+                Layout.topMargin: -35
                 Rectangle
                 {
                     id: contents
                     width: 700
-                    height: 4000
+                    height: 4800
                     color: "red"
                     visible: false
                 }
@@ -118,6 +124,11 @@ Window {
                     Education
                     {
                         id: educationComponent
+                    }
+
+                    Contact
+                    {
+                        id: contactComponent
                     }
                 }
             }
