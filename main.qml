@@ -1,5 +1,6 @@
 import QtQuick
 import com.colors 1.0
+import com.email 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
@@ -33,6 +34,11 @@ Window {
         //meaning pull color
 
         //Function assigned in colorlist Source file
+    }
+
+    EmailSender
+    {
+        id: emailSender
     }
 
     FontLoader
