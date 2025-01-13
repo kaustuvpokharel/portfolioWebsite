@@ -2,6 +2,7 @@ import QtQuick
 import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
+import QtQuick.Controls
 
 import "./components"
 
@@ -14,6 +15,7 @@ Window {
     maximumHeight: contentLayout.implicitHeight + 160
     visible: true
     title: qsTr("Kaustuv Pokharel" + width + "x" + height)
+    Component.onCompleted: Qt.application.frameRate = 60
     Rectangle
     {
         id: bg
@@ -93,6 +95,7 @@ Window {
             Flickable
             {
                 id: mainScroll
+
                 //anchors.fill: parent
                 Layout.preferredWidth: 700
                 Layout.preferredHeight: window.height
@@ -102,6 +105,14 @@ Window {
                 //Layout.alignment: Qt.AlignTop
                 Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: -35
+
+                flickDeceleration: 10000
+                maximumFlickVelocity: 500
+                pressDelay: 0
+                boundsBehavior: Flickable.StopAtBounds
+
+                // ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+                // ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
                 Rectangle
                 {
                     id: contents
@@ -150,6 +161,14 @@ Window {
                         Layout.topMargin: 70
                     }
                 }
+
+                // MouseArea
+                // {
+                //     anchors.fill: parent
+                //     onWheel: wheel => {
+                //         contentY -= wheel.angleDelta.y * 0.3
+                //     }
+                // }
             }
         }
     }

@@ -261,7 +261,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScroll.contentY = educationComponent.y
+                   mainScroll.contentY = educationComponent.y
                 }
             }
 
