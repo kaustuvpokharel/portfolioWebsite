@@ -1,13 +1,13 @@
 import QtQuick 2.15
 import com.colors 1.0
+import com.email 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
 
-
-
 ColumnLayout
 {
+
     Layout.topMargin: 100
     // anchors.top : parent.top
     // anchors.topMargin: 100
@@ -372,7 +372,7 @@ ColumnLayout
 
                 onClicked:
                 {
-
+                    emailSender.sendEmail(name.text, emailfield.text, subjectfield.text, messagefield.text)
                 }
             }
         }
