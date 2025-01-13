@@ -90,53 +90,211 @@ ColumnLayout
 
             RowLayout
             {
-                spacing: 20
+                spacing: 10
                 Layout.alignment: Qt.AlignCenter
                 Layout.topMargin: 15
-                Image {
-                    id: githubIcon
-                    source: "qrc:/iconsStrong/githubIcon"
-                    Layout.preferredWidth: 25
-                    Layout.preferredHeight: 25
-                    smooth: true
-                    fillMode: Image.PreserveAspectFit
-                }
 
-                Image {
-                    id: linkedInIcon
-                    source: "qrc:/iconsStrong/linkedIcon"
-                    Layout.preferredWidth: 25
-                    Layout.preferredHeight: 25
-                    smooth: true
-                    fillMode: Image.PreserveAspectFit
-                }
-
-                Image {
-                    id: youtubeIcon
-                    source: "qrc:/iconsStrong/youtubeIcon"
-                    Layout.preferredWidth: 25
-                    Layout.preferredHeight: 25
-                    smooth: true
-                    fillMode: Image.PreserveAspectFit
-                }
-
-                Image {
-                    id: behanceIcon
-                    source: "qrc:/iconsStrong/behanceIcon"
-                    Layout.preferredWidth: 25
-                    Layout.preferredHeight: 25
-                    smooth: true
-                    fillMode: Image.PreserveAspectFit
-                }
-
-                Image
+                Rectangle
                 {
-                    id:emailIcon
-                    source: "qrc:/iconsStrong/emailIcon"
-                    Layout.preferredWidth: 25
-                    Layout.preferredHeight: 25
-                    smooth: true
-                    fillMode: Image.PreserveAspectFit
+                    id: gIcon
+                    width: 35
+                    height: 35
+                    color: "Transparent"//pullc.color("gray")
+                    radius: 10
+                    Image {
+                        id: githubIcon
+                        source: "qrc:/iconsStrong/githubIcon"
+                        width: 25
+                        height: 25
+                        smooth: true
+                        fillMode: Image.PreserveAspectFit
+                        anchors.centerIn: parent
+                    }
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        propagateComposedEvents: true
+                        cursorShape: Qt.PointingHandCursor
+
+                        onEntered:
+                        {
+                            gIcon.color = pullc.color("graylight")
+                        }
+                        onExited:
+                        {
+                            gIcon.color = "Transparent"
+                        }
+
+                        onClicked:
+                        {
+                            Qt.openUrlExternally("https://github.com/kaustuvpokharel")
+                        }
+                    }
+
+                }
+
+                Rectangle
+                {
+                    id: lIcon
+                    width: 35
+                    height: 35
+                    color: "Transparent"//pullc.color("gray")
+                    radius: 10
+                    Image {
+                        id: linkedInIcon
+                        source: "qrc:/iconsStrong/linkedIcon"
+                        width: 25
+                        height: 25
+                        smooth: true
+                        fillMode: Image.PreserveAspectFit
+                        anchors.centerIn: parent
+                    }
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        propagateComposedEvents: true
+                        cursorShape: Qt.PointingHandCursor
+
+                        onEntered:
+                        {
+                            lIcon.color = pullc.color("graylight")
+                        }
+                        onExited:
+                        {
+                            lIcon.color = "Transparent"
+                        }
+
+                        onClicked:
+                        {
+                            Qt.openUrlExternally("https://www.linkedin.com/in/kaustuvpokharel/")
+                        }
+                    }
+
+                }
+
+                Rectangle
+                {
+                    id: yIcon
+                    width: 35
+                    height: 35
+                    color: "Transparent"//pullc.color("gray")
+                    radius: 10
+                    Image {
+                        id: youtubeIcon
+                        source: "qrc:/iconsStrong/youtubeIcon"
+                        width: 25
+                        height: 25
+                        smooth: true
+                        fillMode: Image.PreserveAspectFit
+                        anchors.centerIn: parent
+                    }
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        propagateComposedEvents: true
+                        cursorShape: Qt.PointingHandCursor
+
+                        onEntered:
+                        {
+                            yIcon.color = pullc.color("graylight")
+                        }
+                        onExited:
+                        {
+                            yIcon.color = "Transparent"
+                        }
+
+                        onClicked:
+                        {
+                            Qt.openUrlExternally("https://www.youtube.com/@K-A-L-I-")
+                        }
+                    }
+
+                }
+
+                Rectangle
+                {
+                    id: bIcon
+                    width: 35
+                    height: 35
+                    color: "Transparent"//pullc.color("gray")
+                    radius: 10
+                    Image {
+                        id: behanceIcon
+                        source: "qrc:/iconsStrong/behanceIcon"
+                        width: 25
+                        height: 25
+                        smooth: true
+                        fillMode: Image.PreserveAspectFit
+                        anchors.centerIn: parent
+                    }
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        propagateComposedEvents: true
+                        cursorShape: Qt.PointingHandCursor
+
+                        onEntered:
+                        {
+                            bIcon.color = pullc.color("graylight")
+                        }
+                        onExited:
+                        {
+                            bIcon.color = "Transparent"
+                        }
+
+                        onClicked:
+                        {
+                            Qt.openUrlExternally("https://www.behance.net/kaustuvpokharel3")
+                        }
+                    }
+                }
+
+                Rectangle
+                {
+                    id: eIcon
+                    width: 35
+                    height: 35
+                    color: "Transparent"//pullc.color("gray")
+                    radius: 10
+                    Image {
+                        id: emailIcon
+                        source: "qrc:/iconsStrong/emailIcon"
+                        width: 25
+                        height: 25
+                        smooth: true
+                        fillMode: Image.PreserveAspectFit
+                        anchors.centerIn: parent
+                    }
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        propagateComposedEvents: true
+                        cursorShape: Qt.PointingHandCursor
+
+                        onEntered:
+                        {
+                            eIcon.color = pullc.color("graylight")
+                        }
+                        onExited:
+                        {
+                            eIcon.color = "Transparent"
+                        }
+
+                        onClicked:
+                        {
+                            Qt.openUrlExternally("mailto:kastuvpokharel@gmail.com")
+                        }
+                    }
                 }
             }
         }

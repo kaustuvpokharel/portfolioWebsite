@@ -75,7 +75,7 @@ ColumnLayout
                     color: "Transparent"
                     Text {
                         id: pdescipt1
-                        text: qsTr("Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.")
+                        text: qsTr("Upcoming Summer 2025 Software Engineer Intern: Electronics")
                         font.family: pRegular.name
                         font.pixelSize: 17
                         // horizontalAlignment: Text.AlignHCenter
@@ -95,6 +95,29 @@ ColumnLayout
                     color: pullc.color("white")
                     wrapMode: Text.Wrap
                     opacity: 0.5
+                }
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    onhoverrect1.color = pullc.color("gray")
+                }
+
+                onExited:
+                {
+                    onhoverrect1.color = "Transparent"
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://www.ansys.com/")
                 }
             }
         }
@@ -164,6 +187,29 @@ ColumnLayout
                     opacity: 0.5
                 }
             }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    onhoverrect2.color = pullc.color("gray")
+                }
+
+                onExited:
+                {
+                    onhoverrect2.color = "Transparent"
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://astrovaaerospace.com/#")
+                }
+            }
         }
 
         Rectangle
@@ -230,6 +276,29 @@ ColumnLayout
                     opacity: 0.5
                 }
             }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    onhoverrect3.color = pullc.color("gray")
+                }
+
+                onExited:
+                {
+                    onhoverrect3.color = "Transparent"
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://www.bell.ca/")
+                }
+            }
         }
 
         Rectangle
@@ -294,6 +363,29 @@ ColumnLayout
                     color: pullc.color("white")
                     wrapMode: Text.Wrap
                     opacity: 0.5
+                }
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    onhoverrect4.color = pullc.color("gray")
+                }
+
+                onExited:
+                {
+                    onhoverrect4.color = "Transparent"
+                }
+
+                onClicked:
+                {
+                    Qt.openUrlExternally("https://sunbi.com.np/index")
                 }
             }
         }

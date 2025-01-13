@@ -2,6 +2,7 @@ import QtQuick 2.15
 import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
+import QtQuick.Controls
 
 
 
@@ -67,19 +68,53 @@ ColumnLayout
                 color: pullc.color("gray")
                 radius: 10
 
-                Text {
+                TextArea {
                     id: namefield
-                    anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: 10
-                    text: qsTr("Your Name")
+                    anchors.top: parent.top
+                    anchors.topMargin: 5
+
+                    placeholderText: qsTr("Your Name")
                     font.family: pRegular.name
                     font.pixelSize: 14
-                    // horizontalAlignment: Text.AlignHCenter
+                    background: null
+                    wrapMode: TextArea.Wrap
                     color: pullc.color("white")
-                    wrapMode: Text.Wrap
+                    width: parent.width - 20
+                    height: parent.height
                     opacity: 0.5
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        cursorShape: Qt.IBeamCursor  // Show cursor to indicate text input
+                        onClicked: {
+                            namefield.forceActiveFocus()
+                            nameFieldRect.border.color = pullc.color("neon")
+                            nameFieldRect.border.width = 1.5
+                        }
+                    }
                 }
+
+                MouseArea
+                {
+                    anchors.fill: nameFieldRect
+                    hoverEnabled: true
+                    propagateComposedEvents: true
+                    cursorShape: Qt.PointingHandCursor
+
+                    onExited: {
+                        nameFieldRect.border.width = 0
+                    }
+
+                    onClicked: {
+                        nameFieldRect.border.color = pullc.color("neon")
+                        nameFieldRect.border.width = 1.5
+                        namefield.forceActiveFocus()
+                    }
+                }
+
             }
 
             Rectangle
@@ -90,18 +125,51 @@ ColumnLayout
                 color: pullc.color("gray")
                 radius: 10
 
-                Text {
+                TextArea {
                     id: emailfield
-                    anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: 10
-                    text: qsTr("Your@email.com")
+                    anchors.top: parent.top
+                    anchors.topMargin: 5
+
+                    placeholderText: qsTr("Your@email.com")
                     font.family: pRegular.name
                     font.pixelSize: 14
-                    // horizontalAlignment: Text.AlignHCenter
+                    background: null
+                    wrapMode: TextArea.Wrap
                     color: pullc.color("white")
-                    wrapMode: Text.Wrap
+                    width: parent.width - 20
+                    height: parent.height
                     opacity: 0.5
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        cursorShape: Qt.IBeamCursor  // Show cursor to indicate text input
+                        onClicked: {
+                            emailfield.forceActiveFocus()
+                            emailFieldRect.border.color = pullc.color("neon")
+                            emailFieldRect.border.width = 1.5
+                        }
+                    }
+                }
+
+                MouseArea
+                {
+                    anchors.fill: emailFieldRect
+                    hoverEnabled: true
+                    propagateComposedEvents: true
+                    cursorShape: Qt.PointingHandCursor
+
+                    onExited: {
+                        emailFieldRect.border.width = 0
+                    }
+
+                    onClicked: {
+                        emailFieldRect.border.color = pullc.color("neon")
+                        emailFieldRect.border.width = 1.5
+                        emailfield.forceActiveFocus()
+                    }
                 }
             }
         }
@@ -127,19 +195,51 @@ ColumnLayout
                 color: pullc.color("gray")
                 radius: 10
 
-                Text {
+                TextArea {
                     id: subjectfield
-
                     anchors.left: parent.left
                     anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: qsTr("Email's subject")
+                    anchors.top: parent.top
+                    anchors.topMargin: 5
+
+                    placeholderText: qsTr("Email's subject")
                     font.family: pRegular.name
                     font.pixelSize: 14
-                    // horizontalAlignment: Text.AlignHCenter
+                    background: null
+                    wrapMode: TextArea.Wrap
                     color: pullc.color("white")
-                    wrapMode: Text.Wrap
+                    width: parent.width - 20
+                    height: parent.height
                     opacity: 0.5
+
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        cursorShape: Qt.IBeamCursor  // Show cursor to indicate text input
+                        onClicked: {
+                            subjectfield.forceActiveFocus()
+                            subjectFieldRect.border.color = pullc.color("neon")
+                            subjectFieldRect.border.width = 1.5
+                        }
+                    }
+                }
+
+                MouseArea
+                {
+                    anchors.fill: subjectFieldRect
+                    hoverEnabled: true
+                    propagateComposedEvents: true
+                    cursorShape: Qt.PointingHandCursor
+
+                    onExited: {
+                        subjectFieldRect.border.width = 0
+                    }
+
+                    onClicked: {
+                        subjectFieldRect.border.color = pullc.color("neon")
+                        subjectFieldRect.border.width = 1.5
+                        subjectfield.forceActiveFocus()
+                    }
                 }
             }
         }
@@ -166,21 +266,69 @@ ColumnLayout
                 color: pullc.color("gray")
                 radius: 10
 
-                Text
+                Flickable {
+                    id: flickableMessage
+                    width: parent.width - 20
+                    height: 80
+                    anchors.centerIn: parent
+                    contentWidth: parent.width
+                    clip: true
+                    flickableDirection: Flickable.VerticalFlick
+
+                    TextArea {
+                        id: messagefield
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+
+                        placeholderText: qsTr("Message")
+                        font.family: pRegular.name
+                        font.pixelSize: 14
+                        background: null
+                        wrapMode: TextArea.Wrap
+                        color: pullc.color("white")
+                        rightPadding: 15
+                        width: parent.width - 20
+                        opacity: 0.5
+                        // Auto-scroll to the bottom when text is added beyond the visible area
+                        onCursorRectangleChanged: {
+                            if (cursorRectangle.y + cursorRectangle.height >= flickableMessage.contentHeight - flickableMessage.height) {
+                                if(flickableMessage.contentHeight > flickableMessage.height)
+                                {
+                                    flickableMessage.contentY = flickableMessage.contentHeight - flickableMessage.height + 20
+                                }
+
+                                flickableMessage.contentHeight = messagefield.contentHeight
+                            }
+                        }
+                        MouseArea
+                        {
+                            anchors.fill: parent
+                            cursorShape: Qt.IBeamCursor
+                            onClicked: {
+                                messagefield.forceActiveFocus()
+                                messageFieldRect.border.color = pullc.color("neon")
+                                messageFieldRect.border.width = 1.5
+                            }
+                        }
+                    }
+                }
+
+                MouseArea
                 {
-                    id: messagefield
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.topMargin: 10
-                    anchors.leftMargin: 10
-                    text: qsTr("Message")
-                    font.family: pRegular.name
-                    font.pixelSize: 14
-                    // horizontalAlignment: Text.AlignHCenter
-                    color: pullc.color("white")
-                    wrapMode: Text.Wrap
-                    opacity: 0.5
+                    anchors.fill: messageFieldRect
+                    hoverEnabled: true
+                    propagateComposedEvents: true
+                    cursorShape: Qt.PointingHandCursor
+
+                    onExited: {
+                        messageFieldRect.border.width = 0
+                    }
+
+                    onClicked: {
+                        messageFieldRect.border.color = pullc.color("neon")
+                        messageFieldRect.border.width = 1.5
+                        messagefield.forceActiveFocus()
+                    }
                 }
             }
         }
@@ -203,6 +351,29 @@ ColumnLayout
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("black")
                 wrapMode: Text.Wrap
+            }
+
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    submitBtn.opacity = 0.7
+                }
+                onExited:
+                {
+                    submitBtn.opacity = 1
+                }
+
+                onClicked:
+                {
+
+                }
             }
         }
     }
