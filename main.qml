@@ -9,8 +9,11 @@ Window {
     id:window
     width: 1920
     height: Screen.height
+    minimumHeight: 720
+    minimumWidth: 350
+    maximumHeight: contentLayout.implicitHeight + 160
     visible: true
-    title: qsTr("Kaustuv Pokharel")
+    title: qsTr("Kaustuv Pokharel" + width + "x" + height)
     Rectangle
     {
         id: bg
@@ -69,6 +72,7 @@ Window {
         contentWidth: parent.width
         contentHeight: parent.height
         anchors.top: headerComponent.bottom
+        anchors.bottom: window.bottom
         anchors.topMargin: 50
         clip: true  // Prevents content from overflowing
 
@@ -88,12 +92,15 @@ Window {
 
             Flickable
             {
-                height: 1080
-                width: 700
-                contentWidth: 700
-                contentHeight: 4800
+                id: mainScroll
+                //anchors.fill: parent
+                Layout.preferredWidth: 700
+                Layout.preferredHeight: window.height
+                contentWidth: width
+                contentHeight: contentLayout.implicitHeight + 160
                 clip: true
-                Layout.alignment: Qt.AlignTop
+                //Layout.alignment: Qt.AlignTop
+                Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: -35
                 Rectangle
                 {
@@ -106,6 +113,8 @@ Window {
 
                 ColumnLayout
                 {
+                    id: contentLayout
+
                     SoftwareEng
                     {
                         id: softwareEngComponent
@@ -129,6 +138,16 @@ Window {
                     Contact
                     {
                         id: contactComponent
+                    }
+
+                    Text {
+                        id: copyRyght
+                        text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
+                        font.family: pMedium.name
+                        font.pixelSize: 15
+                        color: pullc.color("neon")
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.topMargin: 70
                     }
                 }
             }

@@ -75,7 +75,7 @@ ColumnLayout
                     color: "Transparent"
                     Text {
                         id: pdescipt1
-                        text: qsTr("Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.")
+                        text: qsTr("Upcoming Summer 2025 Software Engineer Intern: Electronics")
                         font.family: pRegular.name
                         font.pixelSize: 17
                         // horizontalAlignment: Text.AlignHCenter

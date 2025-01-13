@@ -61,7 +61,7 @@ ColumnLayout
         Layout.topMargin: 100
         Text {
             id: yieNum
-            text: qsTr("+3")
+            text: qsTr("+2")
             font.family: pSemibold.name
             font.pixelSize: 70
             font.weight: 600
@@ -79,7 +79,7 @@ ColumnLayout
 
         Text {
             id: cwNum
-            text: qsTr("+4")
+            text: qsTr("+3")
             font.family: pSemibold.name
             font.pixelSize: 70
             font.weight: 600
