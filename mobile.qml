@@ -92,6 +92,7 @@ Page
                 Education
                 {
                     id: educationComponent
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
                 }
 
                 Contact
