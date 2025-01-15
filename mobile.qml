@@ -86,6 +86,7 @@ Page
                 Experience
                 {
                     id: experienceComponent
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
                 }
 
                 Education
