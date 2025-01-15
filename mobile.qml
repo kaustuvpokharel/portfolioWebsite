@@ -80,6 +80,7 @@ Page
                 Projects
                 {
                     id: projectComponent
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
                 }
 
                 Experience

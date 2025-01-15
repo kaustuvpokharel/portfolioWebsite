@@ -6,8 +6,7 @@ import Qt5Compat.GraphicalEffects
 ColumnLayout
 {
     id:softengLayer
-    // anchors.top : parent.top
-    // anchors.topMargin: 100
+    Layout.topMargin: (window.width > 1150) ? 50 : Math.max(window.width * 0.058, 20)
     Text {
         id: software
         text: qsTr("SOFTWARE")
@@ -26,7 +25,7 @@ ColumnLayout
         font.weight: 800
         color: pullc.color("gray")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  -(window.width * 0.027)
+        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
     }
 
     Rectangle
@@ -35,7 +34,7 @@ ColumnLayout
         Layout.preferredWidth: (window.width > 1150) ? 650 :  Math.max(window.width* 0.8, 380)
         Layout.preferredHeight: discript.height
         color: "blue"
-        Layout.topMargin: (window.width > 1150) ? -20 : -window.width*0.020
+        Layout.topMargin: (window.width > 1150) ? -20 : window.width*0.020
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
 
         Text
@@ -46,7 +45,7 @@ ColumnLayout
 <b>Basic Skills:</b> Python, JavaScript, HTML, CSS, SQL, Microsoft Azure, Figma, Confluence<br />
 <b>Concepts:</b> Agile Methods, OOP, Graphics Programming, Parallel/Concurrent Programming, Multi-threading, Memory Management, Unit Test, Scrum, CI/CD</html>")
             font.family: pRegular.name
-            font.pixelSize: (window.width > 1150) ? 16 : Math.max(window.width * 0.008, 13)
+            font.pixelSize: (window.width > 1150) ? 16 : Math.max(window.width * 0.001, 14)
             horizontalAlignment: (window.width > 1150) ? Text.AlignJustify : Text.AlignHCenter | Text.AlignJustify
             anchors.centerIn: parent
             width:(window.width > 1150) ? 650 :  Math.max(window.width*0.8, 360)
