@@ -74,6 +74,7 @@ Page
                 SoftwareEng
                 {
                     id: softwareEngComponent
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
                 }
 
                 Projects
