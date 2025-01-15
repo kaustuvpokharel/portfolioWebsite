@@ -3,6 +3,7 @@ import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
+import "../components"
 Rectangle
 {
     id: header
@@ -13,6 +14,7 @@ Rectangle
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
     anchors.topMargin: 30
+    property Flickable mainScrollRef
     z : 1
 
     RowLayout
@@ -54,7 +56,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScroll.contentY = softwareEngComponent.y
+                    mainScrollRef.contentY = softwareEngComponent.y
                 }
             }
 
@@ -123,7 +125,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScroll.contentY = projectComponent.y
+                    mainScrollRef.contentY = projectComponent.y
                 }
             }
 
@@ -192,7 +194,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScroll.contentY = experienceComponent.y
+                    mainScrollRef.contentY = experienceComponent.y
                 }
             }
 
@@ -261,7 +263,7 @@ Rectangle
 
                 onClicked:
                 {
-                   mainScroll.contentY = educationComponent.y
+                   mainScrollRef.contentY = educationComponent.y
                 }
             }
 
@@ -329,7 +331,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScroll.contentY = contactComponent.y
+                    mainScrollRef.contentY = contactComponent.y
                 }
             }
             Loader

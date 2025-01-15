@@ -32,7 +32,7 @@ void EmailSender::sendEmail(const QString &name, const QString &email, const QSt
 
     QUrl url("https://");  //Need to add the Backend Url
     QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
 
     QJsonObject json;
     json["name"] = name;

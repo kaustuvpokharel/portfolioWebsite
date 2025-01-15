@@ -6,11 +6,14 @@ import Qt5Compat.GraphicalEffects
 ColumnLayout
 {
     spacing: 10
+    Layout.alignment: Qt.AlignHCenter
+    Layout.preferredWidth: pcMainRect.width
     Rectangle
     {
         id: pcMainRect
-        width: 350
-        height: 650
+        Layout.preferredWidth: (window.width > 1150) ? 350 : mainScroll.width * 0.9
+        Layout.preferredHeight: 650
+        Layout.alignment: Qt.AlignHCenter
         color: pullc.color("white");
         radius: 20
         clip: true
@@ -303,11 +306,12 @@ ColumnLayout
     Rectangle
     {
         id: cppText
-        width: 350
-        height: 30
+        Layout.preferredWidth: (window.width > 1150) ? 350 : mainScroll.width * 0.9
+        Layout.preferredHeight: 30
         color: pullc.color("neon");
         radius: 30
         clip: true
+        Layout.alignment: Qt.AlignHCenter
 
         Image {
             id: bgImage1

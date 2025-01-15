@@ -12,29 +12,32 @@ ColumnLayout
         id: software
         text: qsTr("SOFTWARE")
         font.family: pBlack.name
-        font.pixelSize: 110
+        font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
     }
 
     Text {
         id: engineer
         text: qsTr("ENGINEER")
         font.family: pBlack.name
-        font.pixelSize: 110
+        font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
-
-        Layout.topMargin: -50
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
+        Layout.topMargin: (window.width > 1150) ? -50 :  -(window.width * 0.027)
     }
 
     Rectangle
     {
         id: textWrapper1
-        width: 650
-        height: 90
-        color: "Transparent"
-        Layout.topMargin: -20
+        Layout.preferredWidth: (window.width > 1150) ? 650 :  Math.max(window.width* 0.8, 380)
+        Layout.preferredHeight: discript.height
+        color: "blue"
+        Layout.topMargin: (window.width > 1150) ? -20 : -window.width*0.020
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
+
         Text
         {
             id:discript
@@ -43,9 +46,10 @@ ColumnLayout
 <b>Basic Skills:</b> Python, JavaScript, HTML, CSS, SQL, Microsoft Azure, Figma, Confluence<br />
 <b>Concepts:</b> Agile Methods, OOP, Graphics Programming, Parallel/Concurrent Programming, Multi-threading, Memory Management, Unit Test, Scrum, CI/CD</html>")
             font.family: pRegular.name
-            font.pixelSize: 16
-            horizontalAlignment: Text.AlignJustify
-            width: 650
+            font.pixelSize: (window.width > 1150) ? 16 : Math.max(window.width * 0.008, 13)
+            horizontalAlignment: (window.width > 1150) ? Text.AlignJustify : Text.AlignHCenter | Text.AlignJustify
+            anchors.centerIn: parent
+            width:(window.width > 1150) ? 650 :  Math.max(window.width*0.8, 360)
             color: pullc.color("white")
             wrapMode: Text.Wrap
             opacity: 0.5
@@ -56,50 +60,56 @@ ColumnLayout
     {
 
         columns: 3
-        columnSpacing: 30
-        rowSpacing: -10
-        Layout.topMargin: 100
+        columnSpacing: (window.width > 1150) ? 30 : (window.width * 0.07)
+        rowSpacing: (window.width > 1150) ? -10 : (window.width * 0.0095) - 10
+        Layout.topMargin: (window.width > 1150) ? 100 : (window.width * 0.0027)
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
+
         Text {
             id: yieNum
             text: qsTr("+2")
             font.family: pSemibold.name
-            font.pixelSize: 70
+            font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
             font.weight: 600
             color: pullc.color("white")
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
 
         Text {
             id: pcNum
             text: qsTr("+10")
             font.family: pSemibold.name
-            font.pixelSize: 70
+            font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
             font.weight: 600
             color: pullc.color("white")
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
 
         Text {
             id: cwNum
             text: qsTr("+3")
             font.family: pSemibold.name
-            font.pixelSize: 70
+            font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
             font.weight: 600
             color: pullc.color("white")
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
 
 
         Rectangle
         {
-            width: 150
+            Layout.preferredWidth: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
             height: 40
-            color: "Transparent"
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
+            color: "blue"
             Text
             {
                 id:yie
                 text: qsTr("YEARS OF EXPERIENCE")
                 font.family: pRegular.name
-                font.pixelSize: 15
-                // horizontalAlignment: Text.AlignHCenter
-                width: 150
+                font.pixelSize:  (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
+                horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
+                width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
                 opacity: 0.5
@@ -108,17 +118,18 @@ ColumnLayout
 
         Rectangle
         {
-            width: 150
+            Layout.preferredWidth: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
             height: 40
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
             color: "Transparent"
             Text
             {
                 id:pc
                 text: qsTr("PROJECTS COMPLETED")
                 font.family: pRegular.name
-                font.pixelSize: 15
-                // horizontalAlignment: Text.AlignHCenter
-                width: 150
+                font.pixelSize: (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
+                horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
+                width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
                 opacity: 0.5
@@ -127,7 +138,8 @@ ColumnLayout
 
         Rectangle
         {
-            width: 150
+            Layout.preferredWidth: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
             height: 40
             color: "Transparent"
             Text
@@ -135,9 +147,9 @@ ColumnLayout
                 id:cw
                 text: qsTr("COMPANIES WORKED WITH")
                 font.family: pRegular.name
-                font.pixelSize: 15
-                // horizontalAlignment: Text.AlignHCenter
-                width: 150
+                font.pixelSize: (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
+                horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
+                width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
                 opacity: 0.5
@@ -146,17 +158,20 @@ ColumnLayout
 
     }
 
-    RowLayout
+    GridLayout
     {
-        Layout.topMargin: 50
-        spacing: 30
+        Layout.topMargin: (window.width > 1150) ? 100 : (window.width * 0.027)
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
+        columns: (window.width > 700) ? 2 : 1
+        columnSpacing: (window.width > 700) ? 30 : 1
         Rectangle
         {
             id:resume
             color: pullc.color("gray")
             radius: 10
-            width: 310
-            height: 250
+            Layout.preferredWidth: (window.width > 700) ? 310 : window.width*0.9
+            Layout.preferredHeight: 250
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignCenter
             // Image {
             //     id: bgImage
             //     source: "qrc:/bg/bgCard"
@@ -197,8 +212,8 @@ ColumnLayout
                 }
                 Rectangle
                 {
-                    width: 250
-                    height: 50
+                    Layout.preferredWidth: (window.width > 700) ? 250 : youtube.width*0.8
+                    Layout.preferredHeight: 50
                     color: "Transparent"
 
                     Text
@@ -208,7 +223,7 @@ ColumnLayout
                         font.family: pSemibold.name
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
-                        width: 250
+                        width: (window.width > 700) ? 250 : resume.width*0.8
                         color: pullc.color("white")
                         wrapMode: Text.Wrap
                     }
@@ -246,8 +261,9 @@ ColumnLayout
             id: youtube
             color: pullc.color("neon")
             radius: 10
-            width: 360
-            height: 250
+            Layout.preferredWidth: (window.width > 700) ? 360 : window.width*0.9
+            Layout.preferredHeight: 250
+            Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignCenter
             opacity: 1
             // Image {
             //     id: bgImage1
@@ -289,8 +305,8 @@ ColumnLayout
                 }
                 Rectangle
                 {
-                    width: 250
-                    height: 50
+                    Layout.preferredWidth: (window.width > 700) ? 250 : youtube.width*0.8
+                    Layout.preferredHeight: 50
                     color: "Transparent"
 
                     Text
@@ -300,7 +316,7 @@ ColumnLayout
                         font.family: pSemibold.name
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
-                        width: 250
+                        width: (window.width > 700) ? 250 : youtube.width*0.8
                         color: pullc.color("black")
                         wrapMode: Text.Wrap
                     }
