@@ -12,29 +12,31 @@ ColumnLayout
         id: software
         text: qsTr("SOFTWARE")
         font.family: pBlack.name
-        font.pixelSize: 110
+        font.pixelSize: (window.width > 1050) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
+        Layout.alignment: (window.width > 1050) ? Qt.AlignLeft : Qt.AlignHCenter
     }
 
     Text {
         id: engineer
         text: qsTr("ENGINEER")
         font.family: pBlack.name
-        font.pixelSize: 110
+        font.pixelSize:  (window.width > 1050) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
-
-        Layout.topMargin: -50
+        Layout.alignment: (window.width > 1050) ? Qt.AlignLeft : Qt.AlignHCenter
+        Layout.topMargin: (window.width > 1050) ? -50 :  -(window.width * 0.027)
     }
 
     Rectangle
     {
         id: textWrapper1
-        width: 650
+        width: (window.width > 1050) ? 650 :  Math.max(window.width * 0.015, 380)
         height: 90
         color: "Transparent"
-        Layout.topMargin: -20
+        Layout.topMargin: (window.width > 1050) ? -20 : -window.width*0.020
+        //Layout.alignment: (window.width > 1050) ? Qt.AlignLeft : Qt.AlignHCenter
         Text
         {
             id:discript
@@ -44,7 +46,8 @@ ColumnLayout
 <b>Concepts:</b> Agile Methods, OOP, Graphics Programming, Parallel/Concurrent Programming, Multi-threading, Memory Management, Unit Test, Scrum, CI/CD</html>")
             font.family: pRegular.name
             font.pixelSize: 16
-            horizontalAlignment: Text.AlignJustify
+            horizontalAlignment: (window.width > 1050) ? Text.AlignJustify : Text.AlignHCenter
+
             width: 650
             color: pullc.color("white")
             wrapMode: Text.Wrap
