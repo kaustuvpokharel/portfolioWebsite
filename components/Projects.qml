@@ -460,7 +460,7 @@ ColumnLayout
                     }
                 }
             }
-
+    //comment
             MouseArea
             {
                 anchors.fill: parent
