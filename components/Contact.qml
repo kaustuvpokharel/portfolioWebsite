@@ -8,33 +8,35 @@ import QtQuick.Controls
 ColumnLayout
 {
 
-    Layout.topMargin: 100
+    Layout.topMargin: (window.width > 1150) ? 100 : Math.max(window.width * 0.058, 20)
     // anchors.top : parent.top
     // anchors.topMargin: 100
     Text {
         id: software
         text: qsTr("LET'S WORK")
         font.family: pBlack.name
-        font.pixelSize: 110
+        font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
     }
 
     Text {
         id: engineer
         text: qsTr("TOGETHER")
         font.family: pBlack.name
-        font.pixelSize: 110
+        font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
 
-        Layout.topMargin: -50
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
+        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
     }
 
     ColumnLayout
     {
-        spacing: 20
-        Layout.alignment: Qt.AlignCenter
+        Layout.topMargin: (window.width > 1150) ? -20 : window.width*0.020
+        Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         GridLayout
         {
             columnSpacing: 20
@@ -43,7 +45,7 @@ ColumnLayout
                 id: name
                 text: qsTr("Name")
                 font.family: pRegular.name
-                font.pixelSize: 12
+                font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
@@ -54,7 +56,7 @@ ColumnLayout
                 id: email
                 text: qsTr("Email")
                 font.family: pRegular.name
-                font.pixelSize: 12
+                font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
@@ -63,8 +65,8 @@ ColumnLayout
             Rectangle
             {
                 id: nameFieldRect
-                width: 340
-                height: 40
+                Layout.preferredWidth: (window.width > 700) ? 340 : window.width*0.45
+                Layout.preferredHeight: (window.width > 700) ? 40 : 30
                 color: pullc.color("gray")
                 radius: 10
 
@@ -77,7 +79,7 @@ ColumnLayout
 
                     placeholderText: qsTr("Your Name")
                     font.family: pRegular.name
-                    font.pixelSize: 14
+                    font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                     background: null
                     wrapMode: TextArea.Wrap
                     color: pullc.color("white")
@@ -120,8 +122,8 @@ ColumnLayout
             Rectangle
             {
                 id: emailFieldRect
-                width: 340
-                height: 40
+                Layout.preferredWidth: (window.width > 700) ? 340 : window.width*0.45
+                Layout.preferredHeight: (window.width > 700) ? 40 : 30
                 color: pullc.color("gray")
                 radius: 10
 
@@ -134,7 +136,7 @@ ColumnLayout
 
                     placeholderText: qsTr("Your@email.com")
                     font.family: pRegular.name
-                    font.pixelSize: 14
+                    font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                     background: null
                     wrapMode: TextArea.Wrap
                     color: pullc.color("white")
@@ -180,7 +182,7 @@ ColumnLayout
                 id: subject
                 text: qsTr("Subject")
                 font.family: pRegular.name
-                font.pixelSize: 12
+                font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
@@ -190,8 +192,8 @@ ColumnLayout
             Rectangle
             {
                 id: subjectFieldRect
-                width: 700
-                height: 40
+                Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.95
+                Layout.preferredHeight: (window.width > 700) ? 40 : 30
                 color: pullc.color("gray")
                 radius: 10
 
@@ -204,7 +206,7 @@ ColumnLayout
 
                     placeholderText: qsTr("Email's subject")
                     font.family: pRegular.name
-                    font.pixelSize: 14
+                    font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                     background: null
                     wrapMode: TextArea.Wrap
                     color: pullc.color("white")
@@ -251,7 +253,7 @@ ColumnLayout
                 id: message
                 text: qsTr("Message")
                 font.family: pRegular.name
-                font.pixelSize: 12
+                font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
                 wrapMode: Text.Wrap
@@ -261,15 +263,15 @@ ColumnLayout
             Rectangle
             {
                 id: messageFieldRect
-                width: 700
-                height: 100
+                Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.95
+                Layout.preferredHeight: (window.width > 700) ? 80 : 45
                 color: pullc.color("gray")
                 radius: 10
 
                 Flickable {
                     id: flickableMessage
-                    width: parent.width - 20
-                    height: 80
+                    width: (window.width > 700) ? 700 : window.width*0.95
+                    height: (window.width > 700) ? 80 : 45
                     anchors.centerIn: parent
                     contentWidth: parent.width
                     clip: true
@@ -282,7 +284,7 @@ ColumnLayout
 
                         placeholderText: qsTr("Message")
                         font.family: pRegular.name
-                        font.pixelSize: 14
+                        font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                         background: null
                         wrapMode: TextArea.Wrap
                         color: pullc.color("white")
@@ -336,8 +338,8 @@ ColumnLayout
         Rectangle
         {
             id: submitBtn
-            width: 700
-            height: 40
+            Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.95
+            Layout.preferredHeight: (window.width > 700) ? 40 : 30
             color: pullc.color("neon")
             radius: 10
 
@@ -346,7 +348,7 @@ ColumnLayout
                 anchors.centerIn: parent
                 text: qsTr("Submit")
                 font.family: pRegular.name
-                font.pixelSize: 15
+                font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
                 font.weight: 600
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("black")

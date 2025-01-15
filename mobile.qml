@@ -98,6 +98,7 @@ Page
                 Contact
                 {
                     id: contactComponent
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
                 }
 
                 Text {

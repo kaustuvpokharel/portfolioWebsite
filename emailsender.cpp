@@ -30,7 +30,7 @@ void EmailSender::sendEmail(const QString &name, const QString &email, const QSt
  * sender.sendEmail("Kaustuv Pokharel", "kastuvpokharel@example.com", "Test Subject", "This is a test message.");
  */
 
-    QUrl url("https://");  //Need to add the Backend Url
+    QUrl url("https://kaustuv-backend.vaskrneup.com/email/send-email/");  //Need to add the Backend Url
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json; charset=utf-8");
 
