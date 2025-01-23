@@ -17,19 +17,14 @@ qt_add_qml_module(KaustuvPokharel
     VERSION 1.0
     QML_FILES main.qml
     QML_FILES mobile.qml
-    QML_FILES components/ProfileCard.qml
     SOURCES colorlist.h colorlist.cpp
     RESOURCES images/images.qrc
     RESOURCES icons/icons.qrc
     RESOURCES fonts/fonts.qrc
     QML_FILES components/Header.qml
-    QML_FILES components/SoftwareEng.qml
-    QML_FILES components/Projects.qml
-    QML_FILES components/Experience.qml
-    QML_FILES components/Education.qml
-    QML_FILES components/Contact.qml
     SOURCES emailsender.h emailsender.cpp
     QML_FILES desktop.qml
+    SOURCES backend.h backend.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -64,49 +64,158 @@ Page
             {
                 id: contentLayout
                 anchors.horizontalCenter: parent.horizontalCenter
+                spacing: 20
 
-                ProfileCard
-                {
-                    id: profilecard
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                Loader {
+                    id: profileCard
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: {
+                        Backend.fetchComponent("profileCard", "https://kaustuvpokharel.com/profileCard.qml");
+                    }
+
+                    Connections {
+                        target: Backend
+                        function onComponentFetched(componentName, qmlContent) {
+                            if (componentName === "profileCard") {
+                                console.log("profileCard QML content fetched successfully");
+                                profileCard.source = "data:text/plain," + encodeURIComponent(qmlContent);
+                            }
+                        }
+                        function onComponentFetchFailed(componentName, error) {
+                            console.error(`Failed to fetch ${componentName}: ${error}`);
+                        }
+                    }
                 }
 
-                SoftwareEng
-                {
-                    id: softwareEngComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                Loader {
+                    id: softwareEng
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: {
+                        Backend.fetchComponent("SoftwareEng", "https://kaustuvpokharel.com/SoftwareEng.qml");
+                    }
+
+                    Connections {
+                        target: Backend
+                        function onComponentFetched(componentName, qmlContent) {
+                            if (componentName === "SoftwareEng") {
+                                console.log("SoftwareEng QML content fetched successfully");
+                                softwareEng.source = "data:text/plain," + encodeURIComponent(qmlContent);
+                            }
+                        }
+                        function onComponentFetchFailed(componentName, error) {
+                            console.error(`Failed to fetch ${componentName}: ${error}`);
+                        }
+                    }
                 }
 
-                Projects
-                {
-                    id: projectComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                // Projects
+                // {
+                //     id: projectComponent
+                // }
+
+                Loader {
+                    id: projects
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: {
+                        Backend.fetchComponent("Projects", "https://kaustuvpokharel.com/Projects.qml");
+                    }
+
+                    Connections {
+                        target: Backend
+                        function onComponentFetched(componentName, qmlContent) {
+                            if (componentName === "Projects") {
+                                console.log("Projects QML content fetched successfully");
+                                projects.source = "data:text/plain," + encodeURIComponent(qmlContent);
+                            }
+                        }
+                        function onComponentFetchFailed(componentName, error) {
+                            console.error(`Failed to fetch ${componentName}: ${error}`);
+                        }
+                    }
                 }
 
-                Experience
-                {
-                    id: experienceComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+
+                // Experience
+                // {
+                //     id: experienceComponent
+                // }
+
+                Loader {
+                    id: experience
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: {
+                        Backend.fetchComponent("Experience", "https://kaustuvpokharel.com/Experience.qml");
+                    }
+
+                    Connections {
+                        target: Backend
+                        function onComponentFetched(componentName, qmlContent) {
+                            if (componentName === "Experience") {
+                                console.log("Experience QML content fetched successfully");
+                                experience.source = "data:text/plain," + encodeURIComponent(qmlContent);
+                            }
+                        }
+                        function onComponentFetchFailed(componentName, error) {
+                            console.error(`Failed to fetch ${componentName}: ${error}`);
+                        }
+                    }
                 }
 
-                Education
-                {
-                    id: educationComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                Loader {
+                    id: education
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: {
+                        Backend.fetchComponent("Education", "https://kaustuvpokharel.com/Education.qml");
+                    }
+
+                    Connections {
+                        target: Backend
+                        function onComponentFetched(componentName, qmlContent) {
+                            if (componentName === "Education") {
+                                console.log("Education QML content fetched successfully");
+                                education.source = "data:text/plain," + encodeURIComponent(qmlContent);
+                            }
+                        }
+                        function onComponentFetchFailed(componentName, error) {
+                            console.error(`Failed to fetch ${componentName}: ${error}`);
+                        }
+                    }
                 }
 
-                Contact
-                {
-                    id: contactComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                // Contact
+                // {
+                //     id: contactComponent
+                // }
+
+                Loader {
+                    id: contact
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: {
+                        Backend.fetchComponent("Contact", "https://kaustuvpokharel.com/Contact.qml");
+                    }
+
+                    Connections {
+                        target: Backend
+                        function onComponentFetched(componentName, qmlContent) {
+                            if (componentName === "Contact") {
+                                console.log("Contact QML content fetched successfully");
+                                contact.source = "data:text/plain," + encodeURIComponent(qmlContent);
+                            }
+                        }
+                        function onComponentFetchFailed(componentName, error) {
+                            console.error(`Failed to fetch ${componentName}: ${error}`);
+                        }
+                    }
                 }
 
                 Text {
                     id: copyRyght
-                    font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 10)
+                    text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
                     font.family: pMedium.name
+                    font.pixelSize: 15
                     color: pullc.color("neon")
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.topMargin: 70
                 }
             }
 

@@ -56,7 +56,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScrollRef.contentY = softwareEngComponent.y
+                    mainScrollRef.contentY = softwareEng.y
                 }
             }
 
@@ -125,7 +125,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScrollRef.contentY = projectComponent.y
+                    mainScrollRef.contentY = projects.y
                 }
             }
 
@@ -194,7 +194,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScrollRef.contentY = experienceComponent.y
+                    mainScrollRef.contentY = experience.y
                 }
             }
 
@@ -263,7 +263,7 @@ Rectangle
 
                 onClicked:
                 {
-                   mainScrollRef.contentY = educationComponent.y
+                   mainScrollRef.contentY = education.y
                 }
             }
 
@@ -331,7 +331,7 @@ Rectangle
 
                 onClicked:
                 {
-                    mainScrollRef.contentY = contactComponent.y
+                    mainScrollRef.contentY = contact.y
                 }
             }
             Loader

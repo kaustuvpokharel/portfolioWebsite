@@ -64,6 +64,7 @@ Window {
         id: pRegular
         source: "qrc:/Poppins-Regular.ttf"
     }
+
     FontLoader
     {
         id: pSemibold
