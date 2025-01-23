@@ -11,7 +11,22 @@ ColumnLayout
     Rectangle
     {
         id: pcMainRect
-        Layout.preferredWidth: (window.width > 1150) ? 350 : mainScroll.width * 0.9
+        Layout.preferredWidth:
+        {
+            if(window.width > 1150)
+            {
+                return 350
+            }
+            if(window.width > 700)
+            {
+                return mainScroll.width *0.9
+            }
+            else
+            {
+                return window.width*0.9
+            }
+
+        }
         Layout.preferredHeight: 650
         Layout.alignment: Qt.AlignHCenter
         color: pullc.color("white");
@@ -306,7 +321,22 @@ ColumnLayout
     Rectangle
     {
         id: cppText
-        Layout.preferredWidth: (window.width > 1150) ? 350 : mainScroll.width * 0.9
+        Layout.preferredWidth:
+        {
+            if(window.width > 1150)
+            {
+                return 350
+            }
+            if(window.width > 700)
+            {
+                return mainScroll.width *0.9
+            }
+            else
+            {
+                return window.width*0.9
+            }
+
+        }
         Layout.preferredHeight: 30
         color: pullc.color("neon");
         radius: 30

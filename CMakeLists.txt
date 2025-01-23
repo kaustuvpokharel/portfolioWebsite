@@ -29,8 +29,6 @@ qt_add_qml_module(KaustuvPokharel
     QML_FILES components/Education.qml
     QML_FILES components/Contact.qml
     SOURCES emailsender.h emailsender.cpp
-    QML_FILES components/Mobile.qml
-    RESOURCES
     QML_FILES desktop.qml
 )
 

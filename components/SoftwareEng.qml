@@ -33,7 +33,7 @@ ColumnLayout
         id: textWrapper1
         Layout.preferredWidth: (window.width > 1150) ? 650 :  Math.max(window.width* 0.8, 380)
         Layout.preferredHeight: discript.height
-        color: "blue"
+        color: "Transparent"
         Layout.topMargin: (window.width > 1150) ? -20 : window.width*0.020
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
 
@@ -100,7 +100,7 @@ ColumnLayout
             Layout.preferredWidth: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
             height: 40
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-            color: "blue"
+            color: "Transparent"
             Text
             {
                 id:yie

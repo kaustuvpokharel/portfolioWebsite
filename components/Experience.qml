@@ -39,7 +39,7 @@ ColumnLayout
         {
             id: onhoverrect1
             Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.9
-            Layout.preferredHeight: (window.width > 700) ? 200 : 180
+            Layout.preferredHeight: (window.width > 700) ? 200 : 200
             color: "Transparent" // On hover changes to gray
             Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
 
@@ -139,7 +139,7 @@ ColumnLayout
         {
             id: onhoverrect2
             Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.9
-            Layout.preferredHeight: (window.width > 700) ? 200 : 180
+            Layout.preferredHeight: (window.width > 700) ? 200 : 200
             color: "Transparent" // On hover changes to gray
             Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
 
@@ -239,7 +239,7 @@ ColumnLayout
         {
             id: onhoverrect3
             Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.9
-            Layout.preferredHeight: (window.width > 700) ? 200 : 180
+            Layout.preferredHeight: (window.width > 700) ? 200 : 200
             color: "Transparent" // On hover changes to gray
             Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
 
@@ -339,7 +339,7 @@ ColumnLayout
         {
             id: onhoverrect4
             Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.9
-            Layout.preferredHeight: (window.width > 700) ? 200 : 180
+            Layout.preferredHeight: (window.width > 700) ? 200 : 200
             color: "Transparent" // On hover changes to gray
             Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
 

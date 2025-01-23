@@ -74,7 +74,16 @@ Window {
     {
         id: loader
         anchors.fill: parent
-        initialItem: "qrc:/KaustuvPokharel/desktop.qml"
+        initialItem:
+        {
+            // Switch layout only if the width crosses the 1050px boundary
+            if (window.width > 1150) {
+                return "qrc:/KaustuvPokharel/desktop.qml"
+            } else if (window.width <= 1150)
+            {
+                return "qrc:/KaustuvPokharel/mobile.qml"
+            }
+        }
     }
 
     Timer {
