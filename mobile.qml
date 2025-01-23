@@ -38,7 +38,7 @@ Page
             Layout.preferredWidth: 700
             Layout.preferredHeight: window.height
             contentWidth: width
-            contentHeight: contentLayout.implicitHeight + 160
+            contentHeight: (window.width > 700) ? contentLayout.implicitHeight + 160 :  contentLayout.implicitHeight + 360
             clip: true
             //Layout.alignment: Qt.AlignTop
             Layout.alignment: Qt.AlignHCenter
@@ -51,14 +51,14 @@ Page
 
             // ScrollBar.vertical.policy: ScrollBar.AlwaysOff
             // ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
-            Rectangle
-            {
-                id: contents
-                width: 700
-                height: 4800
-                color: "red"
-                visible: true
-            }
+            // Rectangle
+            // {
+            //     id: contents
+            //     width: 700
+            //     height: 4800
+            //     color: "red"
+            //     visible: true
+            // }
 
             ColumnLayout
             {
@@ -103,12 +103,10 @@ Page
 
                 Text {
                     id: copyRyght
-                    text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
+                    font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 10)
                     font.family: pMedium.name
-                    font.pixelSize: 15
                     color: pullc.color("neon")
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.topMargin: 70
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
                 }
             }
 
