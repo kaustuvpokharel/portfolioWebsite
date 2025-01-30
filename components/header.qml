@@ -37,6 +37,7 @@ Rectangle
                 smooth: true
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
+                asynchronous: false
             }
 
             MouseArea
@@ -105,6 +106,7 @@ Rectangle
                 smooth: true
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
+                asynchronous: false
             }
 
             MouseArea
@@ -174,6 +176,7 @@ Rectangle
                 smooth: true
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
+                asynchronous: false
             }
 
             MouseArea
@@ -243,6 +246,7 @@ Rectangle
                 smooth: true
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
+                asynchronous: false
             }
 
             MouseArea
@@ -311,6 +315,7 @@ Rectangle
                 smooth: true
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
+                asynchronous: false
             }
 
             MouseArea

@@ -74,32 +74,30 @@ Window {
     {
         id: loader
         anchors.fill: parent
-        initialItem:
-        {
-            // Switch layout only if the width crosses the 1050px boundary
+        Component.onCompleted: {
+            // Dynamically determine which layout to load at startup
             if (window.width > 1150) {
-                return "qrc:/KaustuvPokharel/desktop.qml"
-            } else if (window.width <= 1150)
-            {
-                return "qrc:/KaustuvPokharel/mobile.qml"
+                loader.push("qrc:/KaustuvPokharel/desktop.qml")
+            } else {
+                loader.push("qrc:/KaustuvPokharel/mobile.qml")
             }
         }
     }
 
-    Timer {
-            id: debounceTimer
-            interval: 10
-            repeat: false
-            onTriggered: {
-                // Switch layout only if the width crosses the 1050px boundary
-                if (width > 1150 && previousWidth <= 1150) {
-                    loader.replace("qrc:/KaustuvPokharel/desktop.qml")
-                } else if (width <= 1150 && previousWidth > 1150) {
-                    loader.replace("qrc:/KaustuvPokharel/mobile.qml")
-                }
-                previousWidth = width  // Update previous width
+    Timer
+    {
+        id: debounceTimer
+        interval: 10
+        repeat: false
+        onTriggered: {
+            if (width > 1150 && previousWidth <= 1150) {
+                loader.replace("qrc:/KaustuvPokharel/desktop.qml")
+            } else if (width <= 1150 && previousWidth > 1150) {
+                loader.replace("qrc:/KaustuvPokharel/mobile.qml")
             }
+            previousWidth = width;  // Update previous width
         }
+    }
 
 
     onWidthChanged:

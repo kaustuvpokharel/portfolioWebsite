@@ -208,6 +208,7 @@ ColumnLayout
                     Layout.preferredHeight: 45
                     smooth: true
                     fillMode: Image.PreserveAspectFit
+                    asynchronous: false
                 }
                 Rectangle
                 {
@@ -301,6 +302,7 @@ ColumnLayout
                     Layout.preferredHeight: 45
                     smooth: true
                     fillMode: Image.PreserveAspectFit
+                    asynchronous: false
                 }
                 Rectangle
                 {

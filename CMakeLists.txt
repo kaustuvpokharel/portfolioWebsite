@@ -6,7 +6,16 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 6.2 COMPONENTS Quick Network REQUIRED)
+find_package(Qt6 6.2 COMPONENTS Quick)
+
+# Correct WebAssembly linker options
+add_link_options(
+    -s WASM=1
+    # -s INITIAL_MEMORY=67108864 # 64MB in bytes
+    # -s MAXIMUM_MEMORY=536870912 # 512MB in bytes
+    # -s ALLOW_MEMORY_GROWTH=1
+    # -s STACK_SIZE=5242880 # 5MB in bytes
+)
 
 qt_add_executable(KaustuvPokharel
     main.cpp
@@ -30,6 +39,7 @@ qt_add_qml_module(KaustuvPokharel
     QML_FILES components/Contact.qml
     SOURCES emailsender.h emailsender.cpp
     QML_FILES desktop.qml
+    SOURCES fontloader.h fontloader.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -44,7 +54,7 @@ set_target_properties(KaustuvPokharel PROPERTIES
 )
 
 target_link_libraries(KaustuvPokharel
-    PRIVATE Qt6::Quick Qt6::Network)
+    PRIVATE Qt6::Quick)
 
 include(GNUInstallDirs)
 install(TARGETS KaustuvPokharel

@@ -68,6 +68,7 @@ ColumnLayout
                         {
                             maskSource: mask1
                         }
+                        asynchronous: false
                     }
 
                     Rectangle
@@ -183,6 +184,7 @@ ColumnLayout
                         {
                             maskSource: mask2
                         }
+                        asynchronous: false
                     }
 
                     Rectangle
@@ -295,6 +297,7 @@ ColumnLayout
                         {
                             maskSource: mask3
                         }
+                        asynchronous: false
                     }
 
                     Rectangle
@@ -411,6 +414,7 @@ ColumnLayout
                         {
                             maskSource: mask4
                         }
+                        asynchronous: false
                     }
 
                     Rectangle
