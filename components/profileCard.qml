@@ -44,6 +44,7 @@ ColumnLayout
             {
                 maskSource: mask1
             }
+            asynchronous: false
         }
 
         Rectangle
@@ -67,7 +68,7 @@ ColumnLayout
                 smooth: true
                 fillMode: Image.PreserveAspectFit
                 Layout.alignment: Qt.AlignCenter
-
+                asynchronous: false
             }
 
             Text
@@ -127,6 +128,7 @@ ColumnLayout
                         smooth: true
                         fillMode: Image.PreserveAspectFit
                         anchors.centerIn: parent
+                        asynchronous: false
                     }
 
                     MouseArea
@@ -168,6 +170,7 @@ ColumnLayout
                         smooth: true
                         fillMode: Image.PreserveAspectFit
                         anchors.centerIn: parent
+                        asynchronous: false
                     }
 
                     MouseArea
@@ -209,6 +212,7 @@ ColumnLayout
                         smooth: true
                         fillMode: Image.PreserveAspectFit
                         anchors.centerIn: parent
+                        asynchronous: false
                     }
 
                     MouseArea
@@ -250,6 +254,7 @@ ColumnLayout
                         smooth: true
                         fillMode: Image.PreserveAspectFit
                         anchors.centerIn: parent
+                        asynchronous: false
                     }
 
                     MouseArea
@@ -290,6 +295,7 @@ ColumnLayout
                         smooth: true
                         fillMode: Image.PreserveAspectFit
                         anchors.centerIn: parent
+                        asynchronous: false
                     }
 
                     MouseArea
@@ -355,6 +361,7 @@ ColumnLayout
             {
                 maskSource: mask2
             }
+            asynchronous: false
         }
 
         Rectangle
