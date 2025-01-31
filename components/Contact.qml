@@ -1,6 +1,4 @@
 import QtQuick 2.15
-import com.colors 1.0
-import com.email 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
@@ -14,7 +12,7 @@ ColumnLayout
     Text {
         id: software
         text: qsTr("LET'S WORK")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
@@ -24,13 +22,13 @@ ColumnLayout
     Text {
         id: engineer
         text: qsTr("TOGETHER")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
 
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
+        Layout.topMargin: (window.width > 1150) ? -35 :  (window.width * 0.027) - 25
     }
 
     ColumnLayout
@@ -44,7 +42,8 @@ ColumnLayout
             Text {
                 id: name
                 text: qsTr("Name")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
@@ -55,7 +54,8 @@ ColumnLayout
             Text {
                 id: email
                 text: qsTr("Email")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
@@ -78,7 +78,8 @@ ColumnLayout
                     anchors.topMargin: 5
 
                     placeholderText: qsTr("Your Name")
-                    font.family: pRegular.name
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                     background: null
                     wrapMode: TextArea.Wrap
@@ -135,7 +136,8 @@ ColumnLayout
                     anchors.topMargin: 5
 
                     placeholderText: qsTr("Your@email.com")
-                    font.family: pRegular.name
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                     background: null
                     wrapMode: TextArea.Wrap
@@ -181,7 +183,8 @@ ColumnLayout
             Text {
                 id: subject
                 text: qsTr("Subject")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
@@ -205,7 +208,8 @@ ColumnLayout
                     anchors.topMargin: 5
 
                     placeholderText: qsTr("Email's subject")
-                    font.family: pRegular.name
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                     background: null
                     wrapMode: TextArea.Wrap
@@ -252,7 +256,8 @@ ColumnLayout
             {
                 id: message
                 text: qsTr("Message")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 700) ? 12 : Math.max(window.width * 0.001, 10)
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("white")
@@ -283,7 +288,8 @@ ColumnLayout
                         anchors.top: parent.top
 
                         placeholderText: qsTr("Message")
-                        font.family: pRegular.name
+                        font.family: fonts.regular
+                        font.weight: 400
                         font.pixelSize: (window.width > 700) ? 14 : Math.max(window.width * 0.001, 10)
                         background: null
                         wrapMode: TextArea.Wrap
@@ -347,9 +353,9 @@ ColumnLayout
             {
                 anchors.centerIn: parent
                 text: qsTr("Submit")
-                font.family: pRegular.name
+                font.family: fonts.regular
                 font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
-                font.weight: 600
+                font.weight: 400
                 // horizontalAlignment: Text.AlignHCenter
                 color: pullc.color("black")
                 wrapMode: Text.Wrap

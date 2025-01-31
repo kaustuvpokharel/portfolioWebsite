@@ -2,8 +2,7 @@
     <qresource prefix="/">
         <file>Poppins-Bold.ttf</file>
         <file>Poppins-Medium.ttf</file>
-        <file>Poppins-MediumItalic.ttf</file>
         <file>Poppins-Regular.ttf</file>
-        <file>poppins-Black.ttf</file>
+        <file>Poppins-ExtraBold.ttf</file>
     </qresource>
 </RCC>

@@ -1,6 +1,4 @@
 import QtQuick
-import com.colors 1.0
-import com.email 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
@@ -70,14 +68,14 @@ Page {
 
                 // ScrollBar.vertical.policy: ScrollBar.AlwaysOff
                 // ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
-                Rectangle
-                {
-                    id: contents
-                    width: 700
-                    height: 4800
-                    color: "red"
-                    visible: false
-                }
+                // Rectangle
+                // {
+                //     id: contents
+                //     width: 700
+                //     height: 4800
+                //     color: "red"
+                //     visible: false
+                // }
 
                 ColumnLayout
                 {
@@ -111,7 +109,8 @@ Page {
                     Text {
                         id: copyRyght
                         text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
-                        font.family: pMedium.name
+                        font.family: fonts.medium
+                        font.weight: 500
                         font.pixelSize: 15
                         color: pullc.color("neon")
                         Layout.alignment: Qt.AlignHCenter

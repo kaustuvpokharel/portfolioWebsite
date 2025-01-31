@@ -1,9 +1,6 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
-
-
 
 ColumnLayout
 {
@@ -13,7 +10,7 @@ ColumnLayout
     Text {
         id: software
         text: qsTr("ACADEMIC")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
@@ -23,12 +20,12 @@ ColumnLayout
     Text {
         id: engineer
         text: qsTr("PROFILE")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
+        Layout.topMargin: (window.width > 1150) ? -35 :  (window.width * 0.027) - 25
     }
 
     ColumnLayout
@@ -38,7 +35,7 @@ ColumnLayout
         {
             id: onhoverrect1
             Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.9
-            Layout.preferredHeight: (window.width > 700) ? 200 : 180
+            Layout.preferredHeight: (window.width > 700) ? 230 : 250
             color: "Transparent" // On hover changes to gray
             Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
 
@@ -56,13 +53,14 @@ ColumnLayout
                     Layout.preferredWidth: (window.width > 700) ? 650 : window.width*0.8
                     Layout.preferredHeight: (window.width > 700) ? 50 : edu1.height
                     Layout.alignment: Qt.AlignCenter
+
                     color: "Transparent"
                     Text {
                         id: edu1
                         text: qsTr("Bachelors Of Software Engineering")
-                        font.family: pSemibold.name
+                        font.family: fonts.bold
                         font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                        font.weight: 600
+                        font.weight: 700
                         width: (window.width > 700) ? 500 : window.width*0.7
                         color: pullc.color("white")
                     }
@@ -71,25 +69,27 @@ ColumnLayout
                 Text {
                     id: eduCollege
                     text: qsTr("Seneca Polytechnic")
-                    font.family: pMedium.name
-                    font.weight: 600
+
+                    font.family: fonts.medium
+                    font.weight: 500
                     font.pixelSize: (window.width > 700) ? 20 : Math.max(window.width * 0.001, 17)
                     color: pullc.color("white")
                     opacity: 0.7
-                    Layout.topMargin: -20
+                    Layout.topMargin: -30
                 }
 
                 Rectangle
                 {
                     Layout.preferredWidth: (window.width > 700) ? 650 : window.width*0.8
                     Layout.preferredHeight: (window.width > 700) ? 50 : edescipt1.height
-                    Layout.alignment: Qt.AlignCenter
                     color: "Transparent"
+                    Layout.topMargin: -10
                     Text {
                         id: edescipt1
-                        text: qsTr("Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.")
-                        font.family: pRegular.name
-                        font.pixelSize: (window.width > 700) ? 17 : Math.max(window.width * 0.001, 15)
+                        text: qsTr("Data Structures and Algorithms, Operating Systems, Software Design and Development, Programming Languages, Compute Networks, Maths(calculus I & II, Linear algebra, discrete, statistics), Microcontrollers, Compiler design, AI/ML")
+                        font.family: fonts.regular
+                        font.weight: 400
+                        font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 15)
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 500 : window.width*0.85
                         color: pullc.color("white")
@@ -101,8 +101,10 @@ ColumnLayout
                 Text {
                     id: date1
                     text: qsTr("Sep 2022 - May 2026")
-                    font.family: pRegular.name
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
+                    Layout.topMargin:  (window.width > 700) ? 35 : -10
                     // horizontalAlignment: Text.AlignHCenter
                     color: pullc.color("white")
                     wrapMode: Text.Wrap
@@ -129,7 +131,7 @@ ColumnLayout
 
                 onClicked:
                 {
-                    Qt.openUrlExternally("https://www.senecapolytechnic.ca/home.html")
+                    Qt.openUrlExternally("https://www.senecapolytechnic.ca/programs/fulltime/BSA.html")
                 }
             }
         }

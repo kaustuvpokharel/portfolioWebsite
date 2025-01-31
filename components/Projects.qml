@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
@@ -11,7 +10,7 @@ ColumnLayout
     Text {
         id: software
         text: qsTr("RECENT")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
@@ -21,12 +20,12 @@ ColumnLayout
     Text {
         id: engineer
         text: qsTr("PROJECTS")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
+        Layout.topMargin: (window.width > 1150) ? -35 :  (window.width * 0.027) - 25
     }
 
     ColumnLayout
@@ -94,10 +93,10 @@ ColumnLayout
                         Layout.alignment: Qt.AlignCenter
                         Text {
                             id: projectname1
-                            text: qsTr("Astrova QGC - Cross Platform")
-                            font.family: pSemibold.name
+                            text: qsTr("Astrova QGC-CrossPlatform")
+                            font.family: fonts.bold
                             font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                            font.weight: 600
+                            font.weight: 700
                             color: pullc.color("white")
                             wrapMode: Text.Wrap
                             width: (window.width > 700) ? 600 : onhoverrect1.width * 0.7
@@ -112,8 +111,9 @@ ColumnLayout
                         color: "Transparent"
                         Text {
                             id: pdescipt1
-                            text: qsTr("Enhanced the open-source QGroundControl for desktop and Android, managing full-stack development using Qt and C++. Updated features like real-time telemetry, flight planning, and mission monitoring.")
-                            font.family: pRegular.name
+                            text: qsTr("Enhanced QGroundControl for desktop and Android with Qt/C++, leading full-stack development. Improved real-time telemetry, flight planning, and mission monitoring for better UAV control.")
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
                             horizontalAlignment: Text.AlignJustify
                             width: (window.width > 700) ? 500 : onhoverrect1.width * 0.7
@@ -132,6 +132,7 @@ ColumnLayout
                 hoverEnabled: true
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
+
 
                 onEntered:
                 {
@@ -211,9 +212,9 @@ ColumnLayout
                         Text {
                             id: projectname2
                             text: qsTr("Rocketify")
-                            font.family: pSemibold.name
+                            font.family: fonts.bold
                             font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                            font.weight: 600
+                            font.weight: 700
                             color: pullc.color("white")
                             wrapMode: Text.Wrap
                             width: (window.width > 700) ? 600 : onhoverrect2.width * 0.7
@@ -228,8 +229,9 @@ ColumnLayout
                         color: "Transparent"
                         Text {
                             id: pdescipt2
-                            text: qsTr("Simulated  a 2D game using C++ and JavaScript with a backend in QT and a front-end in QML, incorporating a linked list data structure to manage game entities, and implemented gameplay mechanics including dynamic object creation, collision detection, and score tracking.")
-                            font.family: pRegular.name
+                            text: qsTr("Built a 2D game with C++, JavaScript, Qt backend, and QML frontend, using a linked list for entity management and implementing collision detection and score tracking.")
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
                             horizontalAlignment: Text.AlignJustify
                             width: (window.width > 700) ? 500 : onhoverrect2.width * 0.7
@@ -323,10 +325,10 @@ ColumnLayout
                         Layout.alignment: Qt.AlignCenter
                         Text {
                             id: projectname3
-                            text: qsTr("NextGen Firewall - Desktop APP")
-                            font.family: pSemibold.name
+                            text: qsTr("Firewall - Desktop APP")
+                            font.family: fonts.bold
                             font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                            font.weight: 600
+                            font.weight: 700
                             color: pullc.color("white")
                             wrapMode: Text.Wrap
                             width: (window.width > 700) ? 600 : onhoverrect3.width * 0.7
@@ -343,8 +345,9 @@ ColumnLayout
                         width: 600
                         Text {
                             id: pdescipt3
-                            text: qsTr("Developed a Next-Generation Firewall prototype using C++, QT, and Python, featuring real-time packet capture and analysis with Pcap, multithreaded processing with QThread, and AI-driven packet analysis with PyTorch.")
-                            font.family: pRegular.name
+                            text: qsTr("Developed a Next-Gen Firewall prototype with C++, Qt, and Python, integrating real-time packet capture (Pcap), multithreading (QThread), and AI-driven analysis (PyTorch).")
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
                             horizontalAlignment: Text.AlignJustify
                             width: (window.width > 700) ? 500 : onhoverrect3.width * 0.7
@@ -441,9 +444,9 @@ ColumnLayout
                         Text {
                             id: projectname4
                             text: qsTr("VULKAN Project")
-                            font.family: pSemibold.name
+                            font.family: fonts.bold
                             font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                            font.weight: 600
+                            font.weight: 700
                             color: pullc.color("white")
                             wrapMode: Text.Wrap
                             width: (window.width > 700) ? 600 : onhoverrect4.width * 0.7
@@ -453,7 +456,8 @@ ColumnLayout
                     Text {
                         id: pdescipt4
                         text: qsTr("Work in Progress..")
-                        font.family: pRegular.name
+                        font.family: fonts.regular
+                        font.weight: 400
                         font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 500 : onhoverrect2.width * 0.7

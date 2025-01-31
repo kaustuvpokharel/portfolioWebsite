@@ -9,13 +9,13 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 6.2 COMPONENTS Quick)
 
 # Correct WebAssembly linker options
-add_link_options(
-    -s WASM=1
-    # -s INITIAL_MEMORY=67108864 # 64MB in bytes
-    # -s MAXIMUM_MEMORY=536870912 # 512MB in bytes
-    # -s ALLOW_MEMORY_GROWTH=1
-    # -s STACK_SIZE=5242880 # 5MB in bytes
-)
+# add_link_options(
+#     -s WASM=1
+#     # -s INITIAL_MEMORY=67108864 # 64MB in bytes
+#     # -s MAXIMUM_MEMORY=536870912 # 512MB in bytes
+#     # -s ALLOW_MEMORY_GROWTH=1
+#     # -s STACK_SIZE=5242880 # 5MB in bytes
+# )
 
 qt_add_executable(KaustuvPokharel
     main.cpp
@@ -30,7 +30,6 @@ qt_add_qml_module(KaustuvPokharel
     SOURCES colorlist.h colorlist.cpp
     RESOURCES images/images.qrc
     RESOURCES icons/icons.qrc
-    RESOURCES fonts/fonts.qrc
     QML_FILES components/Header.qml
     QML_FILES components/SoftwareEng.qml
     QML_FILES components/Projects.qml
@@ -40,6 +39,7 @@ qt_add_qml_module(KaustuvPokharel
     SOURCES emailsender.h emailsender.cpp
     QML_FILES desktop.qml
     SOURCES fontloader.h fontloader.cpp
+    RESOURCES fonts/fonts.qrc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
