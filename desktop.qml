@@ -22,15 +22,14 @@ Page {
         mainScrollRef: mainScroll
     }
 
-    Flickable
+    Rectangle
     {
         width: parent.width
         height: parent.height
-        contentWidth: parent.width
-        contentHeight: parent.height
         anchors.top: headerComponent.bottom
         anchors.bottom: window.bottom
         anchors.topMargin: 50
+        color: "Transparent"
         clip: true  // Prevents content from overflowing
 
 

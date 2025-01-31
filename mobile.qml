@@ -42,8 +42,8 @@ Page
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: -35
 
-            flickDeceleration: 10000
-            maximumFlickVelocity: 500
+            flickDeceleration: 100
+            maximumFlickVelocity: 1000
             pressDelay: 0
             boundsBehavior: Flickable.StopAtBounds
 
