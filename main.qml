@@ -1,6 +1,7 @@
 import QtQuick
 import com.colors 1.0
 import com.email 1.0
+import com.font 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
@@ -33,9 +34,6 @@ Window {
     ColorList
     {
         id: pullc
-        //meaning pull color
-
-        //Function assigned in colorlist Source file
     }
 
     EmailSender
@@ -43,31 +41,9 @@ Window {
         id: emailSender
     }
 
-    FontLoader
+    FontLoad
     {
-        id: pbold
-        source: "qrc:/Poppins-Bold.ttf"
-    }
-    FontLoader
-    {
-        id: pMedium
-        source: "qrc:/Poppins-Medium.ttf"
-    }
-
-    FontLoader
-    {
-        id: pBlack
-        source: "qrc:/Poppins-Black.ttf"
-    }
-    FontLoader
-    {
-        id: pRegular
-        source: "qrc:/Poppins-Regular.ttf"
-    }
-    FontLoader
-    {
-        id: pSemibold
-        source: "qrc:/Poppins-MediumItalic.ttf"
+        id: fonts
     }
 
     StackView

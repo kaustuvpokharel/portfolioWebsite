@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
@@ -82,7 +81,8 @@ Rectangle
                             text: qsTr("Home")
                             color: pullc.color("white")
                             anchors.centerIn: parent
-                            font.family: pRegular.name
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: 10
                         }
                     }
@@ -152,7 +152,8 @@ Rectangle
                             text: qsTr("Projects")
                             color: pullc.color("white")
                             anchors.centerIn: parent
-                            font.family: pRegular.name
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: 10
                         }
                     }
@@ -222,7 +223,8 @@ Rectangle
                             text: qsTr("Experience")
                             color: pullc.color("white")
                             anchors.centerIn: parent
-                            font.family: pRegular.name
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: 10
                         }
                     }
@@ -292,7 +294,8 @@ Rectangle
                             text: qsTr("Academic")
                             color: pullc.color("white")
                             anchors.centerIn: parent
-                            font.family: pRegular.name
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: 10
                         }
                     }
@@ -360,7 +363,8 @@ Rectangle
                             text: qsTr("Contact")
                             color: pullc.color("white")
                             anchors.centerIn: parent
-                            font.family: pRegular.name
+                            font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: 10
                         }
                     }

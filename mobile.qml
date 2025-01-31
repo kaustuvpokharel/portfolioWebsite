@@ -1,6 +1,4 @@
 import QtQuick
-import com.colors 1.0
-import com.email 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
@@ -38,14 +36,14 @@ Page
             Layout.preferredWidth: 700
             Layout.preferredHeight: window.height
             contentWidth: width
-            contentHeight: (window.width > 700) ? contentLayout.implicitHeight + 160 :  contentLayout.implicitHeight + 360
+            contentHeight: (window.width > 700) ? contentLayout.implicitHeight + 160 :  contentLayout.implicitHeight + 150
             clip: true
             //Layout.alignment: Qt.AlignTop
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: -35
 
-            flickDeceleration: 10000
-            maximumFlickVelocity: 500
+            flickDeceleration: 100
+            maximumFlickVelocity: 1000
             pressDelay: 0
             boundsBehavior: Flickable.StopAtBounds
 
@@ -103,10 +101,12 @@ Page
 
                 Text {
                     id: copyRyght
-                    font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 10)
-                    font.family: pMedium.name
+                    font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 8)
+                    text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
+                    font.family: fonts.medium
+                    font.weight: 500
                     color: pullc.color("neon")
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    Layout.alignment:  Qt.AlignHCenter
                 }
             }
 

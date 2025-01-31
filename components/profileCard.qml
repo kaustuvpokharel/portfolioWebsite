@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
@@ -75,7 +74,7 @@ ColumnLayout
             {
                 id: name
                 text: qsTr("Kaustuv Pokharel")
-                font.family: pbold.name
+                font.family: fonts.bold
                 font.weight: 700
                 font.pixelSize: 27
                 color: pullc.color("black")
@@ -101,7 +100,8 @@ ColumnLayout
                     font.pixelSize: 15
                     horizontalAlignment: Text.AlignHCenter
                     width: 260
-                    font.family: pMedium.name
+                    font.family: fonts.medium
+                    font.weight: 500
                     color: pullc.color("gray")
                     opacity: 0.8
                 }
@@ -381,7 +381,7 @@ ColumnLayout
             font.pixelSize: 15
             horizontalAlignment: Text.AlignHCenter
             width: 260
-            font.family: pMedium.name
+            font.family: fonts.medium
             font.weight: 500
             color: pullc.color("gray")
         }

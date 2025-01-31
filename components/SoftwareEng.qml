@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
@@ -10,9 +9,9 @@ ColumnLayout
     Text {
         id: software
         text: qsTr("SOFTWARE")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
-        font.weight: 800
+        font.weight: 700
         color: pullc.color("white")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
     }
@@ -20,12 +19,12 @@ ColumnLayout
     Text {
         id: engineer
         text: qsTr("ENGINEER")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
-        font.weight: 800
+        font.weight: 700
         color: pullc.color("gray")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
+        Layout.topMargin: (window.width > 1150) ? -35 :  (window.width * 0.027) - 25
     }
 
     Rectangle
@@ -44,7 +43,8 @@ ColumnLayout
 <b>Frameworks/Libraries:</b> QT, QML, Vulkan, STL, Socket, Boost, Tensorflow, Pcap, OpenCL, OpenCV<br />
 <b>Basic Skills:</b> Python, JavaScript, HTML, CSS, SQL, Microsoft Azure, Figma, Confluence<br />
 <b>Concepts:</b> Agile Methods, OOP, Graphics Programming, Parallel/Concurrent Programming, Multi-threading, Memory Management, Unit Test, Scrum, CI/CD</html>")
-            font.family: pRegular.name
+            font.family: fonts.regular
+            font.weight: 400
             font.pixelSize: (window.width > 1150) ? 16 : Math.max(window.width * 0.001, 14)
             horizontalAlignment: (window.width > 1150) ? Text.AlignJustify : Text.AlignHCenter | Text.AlignJustify
             anchors.centerIn: parent
@@ -67,9 +67,9 @@ ColumnLayout
         Text {
             id: yieNum
             text: qsTr("+2")
-            font.family: pSemibold.name
+            font.family: fonts.bold
             font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
-            font.weight: 600
+            font.weight: 700
             color: pullc.color("white")
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
@@ -77,9 +77,9 @@ ColumnLayout
         Text {
             id: pcNum
             text: qsTr("+10")
-            font.family: pSemibold.name
+            font.family: fonts.bold
             font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
-            font.weight: 600
+            font.weight: 700
             color: pullc.color("white")
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
@@ -87,9 +87,9 @@ ColumnLayout
         Text {
             id: cwNum
             text: qsTr("+3")
-            font.family: pSemibold.name
+            font.family: fonts.bold
             font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
-            font.weight: 600
+            font.weight: 700
             color: pullc.color("white")
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
@@ -105,7 +105,8 @@ ColumnLayout
             {
                 id:yie
                 text: qsTr("YEARS OF EXPERIENCE")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize:  (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
                 horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
                 width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
@@ -125,7 +126,8 @@ ColumnLayout
             {
                 id:pc
                 text: qsTr("PROJECTS COMPLETED")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
                 horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
                 width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
@@ -145,7 +147,8 @@ ColumnLayout
             {
                 id:cw
                 text: qsTr("COMPANIES WORKED WITH")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
                 horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
                 width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
@@ -220,7 +223,8 @@ ColumnLayout
                     {
                         id: resumeT
                         text: qsTr("RESUME it is—roast or toast?")
-                        font.family: pSemibold.name
+                        font.family: fonts.bold
+                        font.weight: 700
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 250 : resume.width*0.8
@@ -314,7 +318,8 @@ ColumnLayout
                     {
                         id: yText
                         text: qsTr("Blogs it is—roast or toast?")
-                        font.family: pSemibold.name
+                        font.family: fonts.bold
+                        font.weight: 700
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 250 : youtube.width*0.8

@@ -1,9 +1,6 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
-
-
 
 ColumnLayout
 {
@@ -13,7 +10,7 @@ ColumnLayout
     Text {
         id: software
         text: qsTr("YEARS OF")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("white")
@@ -23,12 +20,12 @@ ColumnLayout
     Text {
         id: engineer
         text: qsTr("EXPERIENCE")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
         font.weight: 800
         color: pullc.color("gray")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
+        Layout.topMargin: (window.width > 1150) ? -35 :  (window.width * 0.027) - 25
     }
 
     ColumnLayout
@@ -59,10 +56,10 @@ ColumnLayout
                     color: "Transparent"
                     Text {
                         id: exp1
-                        text: qsTr("Software Engineer Intern (Incoming)")
-                        font.family: pSemibold.name
+                        text: qsTr("Software Engineer Intern")
+                        font.family: fonts.bold
                         font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                        font.weight: 600
+                        font.weight: 700
                         width: (window.width > 700) ? 500 : window.width*0.7
                         color: pullc.color("white")
                     }
@@ -71,12 +68,12 @@ ColumnLayout
                 Text {
                     id: expPos
                     text: qsTr("Ansys Inc.")
-                    font.family: pMedium.name
-                    font.weight: 600
+                    font.family: fonts.medium
+                    font.weight: 500
                     font.pixelSize: (window.width > 700) ? 20 : Math.max(window.width * 0.001, 17)
                     color: pullc.color("white")
                     opacity: 0.7
-                    Layout.topMargin: -20
+                    Layout.topMargin: -30
                 }
 
                 Rectangle
@@ -84,11 +81,13 @@ ColumnLayout
                     Layout.preferredWidth: (window.width > 700) ? 650 : window.width*0.8
                     Layout.preferredHeight: (window.width > 700) ? 50 : pdescipt1.height
                     Layout.alignment: Qt.AlignCenter
+                    Layout.topMargin: -10
                     color: "Transparent"
                     Text {
                         id: pdescipt1
                         text: qsTr("Upcoming Summer 2025 Software Engineer Intern: Electronics")
-                        font.family: pRegular.name
+                        font.family: fonts.medium
+                        font.weight: 500
                         font.pixelSize: (window.width > 700) ? 17 : Math.max(window.width * 0.001, 15)
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 500 : window.width*0.85
@@ -101,9 +100,11 @@ ColumnLayout
                 Text {
                     id: date1
                     text: qsTr("May 2025 - August 2025")
-                    font.family: pRegular.name
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
                     // horizontalAlignment: Text.AlignHCenter
+                    Layout.topMargin:  (window.width > 700) ? 15 : -10
                     color: pullc.color("white")
                     wrapMode: Text.Wrap
                     opacity: 0.5
@@ -143,6 +144,7 @@ ColumnLayout
             color: "Transparent" // On hover changes to gray
             Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
 
+
             radius: 20
 
             ColumnLayout
@@ -161,9 +163,9 @@ ColumnLayout
                     Text {
                         id: exp2
                         text: qsTr("C++ Developer")
-                        font.family: pSemibold.name
+                        font.family: fonts.bold
                         font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                        font.weight: 600
+                        font.weight: 700
                         width: (window.width > 700) ? 500 : window.width*0.7
                         color: pullc.color("white")
                     }
@@ -172,12 +174,12 @@ ColumnLayout
                 Text {
                     id: expPos2
                     text: qsTr("Astrova Aerospace")
-                    font.family: pMedium.name
-                    font.weight: 600
+                    font.family: fonts.medium
+                    font.weight: 500
                     font.pixelSize: (window.width > 700) ? 20 : Math.max(window.width * 0.001, 17)
                     color: pullc.color("white")
                     opacity: 0.7
-                    Layout.topMargin: -20
+                    Layout.topMargin: -30
                 }
 
                 Rectangle
@@ -186,10 +188,12 @@ ColumnLayout
                     Layout.preferredHeight: (window.width > 700) ? 50 : pdescipt2.height
                     Layout.alignment: Qt.AlignCenter
                     color: "Transparent"
+                    Layout.topMargin: -10
                     Text {
                         id: pdescipt2
                         text: qsTr("Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.")
-                        font.family: pRegular.name
+                        font.family: fonts.regular
+                        font.weight: 400
                         font.pixelSize: (window.width > 700) ? 17 : Math.max(window.width * 0.001, 15)
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 500 : window.width*0.85
@@ -202,7 +206,9 @@ ColumnLayout
                 Text {
                     id: date2
                     text: qsTr("Aug 2024 - Present")
-                    font.family: pRegular.name
+                    Layout.topMargin:  (window.width > 700) ? 15 : -10
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
                     // horizontalAlignment: Text.AlignHCenter
                     color: pullc.color("white")
@@ -261,9 +267,9 @@ ColumnLayout
                     Text {
                         id: exp3
                         text: qsTr("Software Developer Intern")
-                        font.family: pSemibold.name
+                        font.family: fonts.bold
                         font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                        font.weight: 600
+                        font.weight: 700
                         width: (window.width > 700) ? 500 : window.width*0.7
                         color: pullc.color("white")
                     }
@@ -272,12 +278,12 @@ ColumnLayout
                 Text {
                     id: expPos3
                     text: qsTr("Bell Canada")
-                    font.family: pMedium.name
-                    font.weight: 600
+                    font.family: fonts.medium
+                    font.weight: 500
                     font.pixelSize: (window.width > 700) ? 20 : Math.max(window.width * 0.001, 17)
                     color: pullc.color("white")
                     opacity: 0.7
-                    Layout.topMargin: -20
+                    Layout.topMargin: -30
                 }
 
                 Rectangle
@@ -286,10 +292,12 @@ ColumnLayout
                     Layout.preferredHeight: (window.width > 700) ? 50 : pdescipt3.height
                     Layout.alignment: Qt.AlignCenter
                     color: "Transparent"
+                    Layout.topMargin: -10
                     Text {
                         id: pdescipt3
                         text: qsTr("Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.")
-                        font.family: pRegular.name
+                        font.family: fonts.regular
+                        font.weight: 400
                         font.pixelSize: (window.width > 700) ? 17 : Math.max(window.width * 0.001, 15)
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 500 : window.width*0.85
@@ -302,7 +310,9 @@ ColumnLayout
                 Text {
                     id: date3
                     text: qsTr("May 2024 - Aug 2024")
-                    font.family: pRegular.name
+                    Layout.topMargin:  (window.width > 700) ? 15 : -10
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
                     // horizontalAlignment: Text.AlignHCenter
                     color: pullc.color("white")
@@ -361,9 +371,9 @@ ColumnLayout
                     Text {
                         id: exp4
                         text: qsTr("3D Generalist")
-                        font.family: pSemibold.name
+                        font.family: fonts.bold
                         font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
-                        font.weight: 600
+                        font.weight: 700
                         width: (window.width > 700) ? 500 : window.width*0.7
                         color: pullc.color("white")
                     }
@@ -372,12 +382,12 @@ ColumnLayout
                 Text {
                     id: expPos4
                     text: qsTr("SunBi Holding Pvt. Ltd.")
-                    font.family: pMedium.name
-                    font.weight: 600
+                    font.family: fonts.medium
+                    font.weight: 500
                     font.pixelSize: (window.width > 700) ? 20 : Math.max(window.width * 0.001, 17)
                     color: pullc.color("white")
                     opacity: 0.7
-                    Layout.topMargin: -20
+                    Layout.topMargin: -30
                 }
 
                 Rectangle
@@ -386,10 +396,12 @@ ColumnLayout
                     Layout.preferredHeight: (window.width > 700) ? 50 : pdescipt4.height
                     Layout.alignment: Qt.AlignCenter
                     color: "Transparent"
+                    Layout.topMargin: -10
                     Text {
                         id: pdescipt4
                         text: qsTr("Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.")
-                        font.family: pRegular.name
+                        font.family: fonts.regular
+                        font.weight: 400
                         font.pixelSize: (window.width > 700) ? 17 : Math.max(window.width * 0.001, 15)
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 500 : window.width*0.85
@@ -402,7 +414,9 @@ ColumnLayout
                 Text {
                     id: date4
                     text: qsTr("Jan 2021 - Aug 2022")
-                    font.family: pRegular.name
+                    Layout.topMargin:  (window.width > 700) ? 15 : -10
+                    font.family: fonts.regular
+                    font.weight: 400
                     font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 13)
                     // horizontalAlignment: Text.AlignHCenter
                     color: pullc.color("white")
