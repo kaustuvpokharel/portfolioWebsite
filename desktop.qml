@@ -2,128 +2,101 @@ import QtQuick
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
-
 import "./components"
 
 Page {
-    Rectangle
-    {
+    id: page
+    anchors.fill: parent
+
+    // Background
+    Rectangle {
         id: bg
-        anchors
-        {
-            fill: parent
-        }
-
+        anchors.fill: parent
         color: pullc.color("black")
-    }
-    Header
-    {
-        id:headerComponent
-        mainScrollRef: mainScroll
+        layer.enabled: true  // Caches static background
+        layer.smooth: true
     }
 
-    Rectangle
-    {
-        width: parent.width
-        height: parent.height
+    // Header Section (Always Visible)
+    Loader {
+        id: headerComponent
+        source: "qrc:/header.qml"
+        active: true
+        anchors.top: parent.top
+        anchors.topMargin: 30
+        z: 1  // Ensure header stays on top
+    }
+
+
+
+    // Main Content Area
+    Flickable {
+        id: mainScroll
         anchors.top: headerComponent.bottom
-        anchors.bottom: window.bottom
-        anchors.topMargin: 50
-        color: "Transparent"
-        clip: true  // Prevents content from overflowing
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        contentWidth: parent.width
+        contentHeight: Math.max(contentLayout.implicitHeight, window.height * 2)
+        clip: true
 
+        flickDeceleration: 300       // Smoother deceleration for WebAssembly
+        maximumFlickVelocity: 2000   // More responsive flicks
+        pressDelay: 0
+        boundsBehavior: Flickable.DragAndOvershootBounds  // Adds a smooth bounce effect
 
-        RowLayout
-        {
-            spacing: 100
+        // Content Layout
+        ColumnLayout {
+            id: contentLayout
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
+            spacing: 40
+            width: Math.min(parent.width, 800)  // Responsive layout for large/small screens
 
-            ProfileCard
-            {
-                id: profilecard
-                Layout.alignment: Qt.AlignTop
-                // Layout.topMargin: 250
+            Loader {
+                id: profile
+                source: "qrc:/profileCard.qml"
+                active: true
             }
 
-            Flickable
-            {
-                id: mainScroll
+            Loader {
+                id: softwareEngLoader
+                source: "qrc:/SoftwareEng.qml"
+                active: true
+            }
 
-                //anchors.fill: parent
-                Layout.preferredWidth: 700
-                Layout.preferredHeight: window.height
-                contentWidth: width
-                contentHeight: contentLayout.implicitHeight + 160
-                clip: true
-                //Layout.alignment: Qt.AlignTop
-                Layout.alignment: Qt.AlignHCenter
-                Layout.topMargin: -35
+            // Lazy Load Other Sections (Based on Scroll Position)
+            Loader {
+                id: projectsLoader
+                source: "qrc:/Projects.qml"
+                active: mainScroll.contentY > 200
+            }
+            Loader {
+                id: experienceLoader
+                source: "qrc:/Experience.qml"
+                active: mainScroll.contentY > 400
+            }
+            Loader {
+                id: educationLoader
+                source: "qrc:/Education.qml"
+                active: mainScroll.contentY > 600
+            }
+            Loader {
+                id: contactLoader
+                source: "qrc:/Contact.qml"
+                active: mainScroll.contentY > 800
+            }
 
-                flickDeceleration: 10000
-                maximumFlickVelocity: 500
-                pressDelay: 0
-                boundsBehavior: Flickable.StopAtBounds
-
-                // ScrollBar.vertical.policy: ScrollBar.AlwaysOff
-                // ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
-                // Rectangle
-                // {
-                //     id: contents
-                //     width: 700
-                //     height: 4800
-                //     color: "red"
-                //     visible: false
-                // }
-
-                ColumnLayout
-                {
-                    id: contentLayout
-
-                    SoftwareEng
-                    {
-                        id: softwareEngComponent
-                    }
-
-                    Projects
-                    {
-                        id: projectComponent
-                    }
-
-                    Experience
-                    {
-                        id: experienceComponent
-                    }
-
-                    Education
-                    {
-                        id: educationComponent
-                    }
-
-                    Contact
-                    {
-                        id: contactComponent
-                    }
-
-                    Text {
-                        id: copyRyght
-                        text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
-                        font.family: fonts.medium
-                        font.weight: 500
-                        font.pixelSize: 15
-                        color: pullc.color("neon")
-                        Layout.alignment: Qt.AlignHCenter
-                        Layout.topMargin: 70
-                    }
-                }
-
-                // MouseArea
-                // {
-                //     anchors.fill: parent
-                //     onWheel: wheel => {
-                //         contentY -= wheel.angleDelta.y * 0.3
-                //     }
-                // }
+            // Footer Text
+            Text {
+                id: copy
+                text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
+                font.family: fonts.medium
+                font.weight: 500
+                font.pixelSize: Math.max(window.width * 0.015, 10)
+                color: pullc.color("neon")
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.Wrap
+                Layout.topMargin: 20
             }
         }
     }

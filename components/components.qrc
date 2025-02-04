@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Contact.qml</file>
+        <file>Education.qml</file>
+        <file>Experience.qml</file>
+        <file>header.qml</file>
+        <file>profileCard.qml</file>
+        <file>Projects.qml</file>
+        <file>SoftwareEng.qml</file>
+    </qresource>
+</RCC>

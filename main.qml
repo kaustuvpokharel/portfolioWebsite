@@ -20,6 +20,7 @@ Window {
     Component.onCompleted: Qt.application.frameRate = 60
     property int previousWidth: width
 
+
     Rectangle
     {
         id: bg
@@ -29,6 +30,9 @@ Window {
         }
 
         color: pullc.color("black")
+        layer.enabled: true   // Caches the loaded ProfileCard component
+        layer.smooth: true    // Optional: smoothens the cached texture
+        layer.mipmap: true
     }
 
     ColorList
@@ -49,6 +53,9 @@ Window {
     StackView
     {
         id: loader
+        layer.enabled: true   // Caches the loaded ProfileCard component
+        layer.smooth: true    // Optional: smoothens the cached texture
+        layer.mipmap: true
         anchors.fill: parent
         Component.onCompleted: {
             // Dynamically determine which layout to load at startup
