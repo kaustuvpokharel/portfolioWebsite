@@ -5,7 +5,7 @@ This is a portfolio website built using Qt, QML, and C++ and deployed via WebAss
 ## Preview
 
 ### Click the Image to Visit Website 👇
-[![Preview Image](preview1.png)]((http://www.kaustuvpokharel.com))
+[![Preview Image](preview1.png)((http://www.kaustuvpokharel.com)]
 
 ## Features
 
