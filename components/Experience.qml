@@ -117,7 +117,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -223,7 +223,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -327,7 +327,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -431,7 +431,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 

@@ -16,5 +16,6 @@
     <qresource prefix="/softwareEng">
         <file alias="article">material-symbols_article-outline.png</file>
         <file alias="resume">qlementine-icons_resume-16.png</file>
+        <file alias="youtubeWhite">line-mdyoutube.png</file>
     </qresource>
 </RCC>
