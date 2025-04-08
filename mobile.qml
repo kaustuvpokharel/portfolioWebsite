@@ -22,7 +22,8 @@ Item {
     }
     Connections {
         target: headerLoader
-        onLoaded: {
+        function onLoaded()
+        {
             if (headerLoader.item)
                 headerLoader.item.mainScrollRef = mainScroll;
         }
@@ -32,7 +33,7 @@ Item {
         spacing: 100
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: headerLoader.bottom
-        anchors.topMargin: 50
+        anchors.topMargin: 20
         anchors.bottom: window.bottom
 
         Flickable {
@@ -40,7 +41,7 @@ Item {
             Layout.preferredWidth: 700
             Layout.preferredHeight: window.height
             contentWidth: width
-            contentHeight: Math.max(contentLayout.implicitHeight + 200, window.height * 3) // Ensure scrollable area
+            contentHeight: Math.max(contentLayout.implicitHeight + 130, window.height * 3) // Ensure scrollable area
             clip: true
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: 35
@@ -107,7 +108,8 @@ Item {
                     font.weight: 500
                     font.pixelSize: 8
                     color: pullc.color("neon")
-                    Layout.topMargin: 50
+                    Layout.topMargin: 5
+                    Layout.alignment: Qt.AlignHCenter
                 }
             }
         }

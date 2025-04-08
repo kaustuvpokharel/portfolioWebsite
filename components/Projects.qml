@@ -114,7 +114,7 @@ ColumnLayout
                         color: "Transparent"
                         Text {
                             id: pdescipt1
-                            text: qsTr("Enhanced QGroundControl for desktop and Android with Qt/C++, leading full-stack development. Improved real-time telemetry, flight planning, and mission monitoring for better UAV control.")
+                            text: qsTr("Developed a cross-platform Ground Control Station (GCS) in C++/Qt for Android and Desktop, integrating MAVLink and PX4 for real-time drone telemetry, mission control, and sensor data visualization.")
                             font.family: fonts.regular
                             font.weight: 400
                             font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
@@ -132,7 +132,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -214,7 +214,7 @@ ColumnLayout
                         Layout.alignment: Qt.AlignCenter
                         Text {
                             id: projectname2
-                            text: qsTr("Rocketify")
+                            text: qsTr("FireShip")
                             font.family: fonts.bold
                             font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
                             font.weight: 700
@@ -227,12 +227,12 @@ ColumnLayout
                     Rectangle
                     {
                         id: desRect2
-                        Layout.preferredHeight: (window.width > 700) ? 100 : pdescipt1.height
-                        Layout.preferredWidth: (window.width > 700) ? 600 : onhoverrect1.width * 0.7
+                        Layout.preferredHeight: (window.width > 700) ? 100 : pdescipt2.height
+                        Layout.preferredWidth: (window.width > 700) ? 600 : onhoverrect2.width * 0.7
                         color: "Transparent"
                         Text {
                             id: pdescipt2
-                            text: qsTr("Built a 2D game with C++, JavaScript, Qt backend, and QML frontend, using a linked list for entity management and implementing collision detection and score tracking.")
+                            text: qsTr("2D arcade-style game built with Qt and C++ featuring gravity, collision detection, score tracking, and entity management. Documented with 30+ YouTube tutorials for learning support for the community.")
                             font.family: fonts.regular
                             font.weight: 400
                             font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
@@ -250,7 +250,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -266,7 +266,7 @@ ColumnLayout
 
                 onClicked:
                 {
-                    Qt.openUrlExternally("https://github.com/kaustuvpokharel/Rocketify")
+                    Qt.openUrlExternally("https://github.com/kaustuvpokharel/FireShip")
                 }
             }
         }
@@ -341,8 +341,8 @@ ColumnLayout
                     Rectangle
                     {
                         id: desRect3
-                        Layout.preferredHeight: (window.width > 700) ? 100 : pdescipt1.height
-                        Layout.preferredWidth: (window.width > 700) ? 600 : onhoverrect1.width * 0.7
+                        Layout.preferredHeight: (window.width > 700) ? 100 : pdescipt3.height
+                        Layout.preferredWidth: (window.width > 700) ? 600 : onhoverrect3.width * 0.7
                         color: "Transparent"
                         height: 100
                         width: 600
@@ -366,7 +366,7 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -393,8 +393,6 @@ ColumnLayout
             Layout.preferredWidth: (window.width > 700) ? 700 : window.width*0.9
             Layout.preferredHeight: (window.width > 700) ? 200 : 150
             color: "Transparent" // On hover changes to gray
-            Layout.alignment: (window.width > 700) ? Qt.AlignLeft : Qt.AlignHCenter
-
             radius: 20
             RowLayout
             {
@@ -411,7 +409,7 @@ ColumnLayout
                     radius: 20
 
                     Image {
-                        source: "qrc:/projects/rocketifyImg"
+                        source: "qrc:/projects/foodiez.png"
                         anchors.fill: parent
                         smooth: true
                         fillMode: Image.PreserveAspectCrop
@@ -446,7 +444,7 @@ ColumnLayout
                         Layout.alignment: Qt.AlignCenter
                         Text {
                             id: projectname4
-                            text: qsTr("VULKAN Project")
+                            text: qsTr("Foodiez - Social Media")
                             font.family: fonts.bold
                             font.pixelSize: (window.width > 700) ? 30 : Math.max(window.width * 0.0058, 20)
                             font.weight: 700
@@ -456,26 +454,35 @@ ColumnLayout
                         }
                     }
 
-                    Text {
-                        id: pdescipt4
-                        text: qsTr("Work in Progress..")
-                        font.family: fonts.regular
-                        font.weight: 400
-                        font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
-                        // horizontalAlignment: Text.AlignHCenter
-                        width: (window.width > 700) ? 500 : onhoverrect2.width * 0.7
-                        color: pullc.color("white")
-                        wrapMode: Text.Wrap
-                        opacity: 0.5
-                        visible: (window.width > 500) ? true : false
+                    Rectangle
+                    {
+                        id: desRect4
+                        Layout.preferredHeight: (window.width > 700) ? 100 : pdescipt4.height
+                        Layout.preferredWidth: (window.width > 700) ? 600 : onhoverrect4.width * 0.7
+                        color: "Transparent"
+                        height: 100
+                        width: 600
+                        Text {
+                            id: pdescipt4
+                            text: qsTr("Instagram-style app for food lovers with post uploads, user profiles, and real-time updates. Built with Qt/QML frontend and C++ backend.")
+                            font.family: fonts.regular
+                            font.weight: 400
+                            font.pixelSize: (window.width > 700) ? 16 : Math.max(window.width * 0.001, 14)
+                            horizontalAlignment: Text.AlignJustify
+                            width: (window.width > 700) ? 500 : onhoverrect4.width * 0.7
+                            color: pullc.color("white")
+                            wrapMode: Text.Wrap
+                            opacity: 0.5
+                            visible: (window.width > 500) ? true : false
+                        }
                     }
                 }
             }
-    //comment
+
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
@@ -491,7 +498,7 @@ ColumnLayout
 
                 onClicked:
                 {
-                    Qt.openUrlExternally("https://github.com/kaustuvpokharel/")
+                    Qt.openUrlExternally("https://github.com/kaustuvpokharel/FireWall_Version2")
                 }
             }
         }

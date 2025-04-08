@@ -27,7 +27,8 @@ Item {
     }
     Connections {
         target: headerLoader
-        onLoaded: {
+        function onLoaded()
+        {
             if (headerLoader.item)
                 headerLoader.item.mainScrollRef = mainScroll;
         }
