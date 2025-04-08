@@ -1,4 +1,8 @@
 #include "fontloader.h"
+<<<<<<< HEAD
+
+FontLoader::FontLoader() {}
+=======
 #include "qdebug.h"
 
 FontLoader::FontLoader(QObject *parent):  QObject(parent)
@@ -30,3 +34,4 @@ void FontLoader::loadFonts()
         }
     }
 }
+>>>>>>> fontSyncLoading
