@@ -8,15 +8,6 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick)
 
-<<<<<<< HEAD
-add_link_options(
-    -s WASM=1
-    # -s INITIAL_MEMORY=67108864 # 64MB in bytes
-    # -s MAXIMUM_MEMORY=536870912 # 512MB in bytes
-    # -s ALLOW_MEMORY_GROWTH=1
-    # -s STACK_SIZE=5242880 # 5MB in bytes
-)
-=======
 # Correct WebAssembly linker options
 if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     add_link_options(
@@ -28,7 +19,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
         "--bind"
     )
 endif()
->>>>>>> fontSyncLoading
 
 qt_add_executable(KaustuvPokharel
     main.cpp
@@ -46,11 +36,10 @@ qt_add_qml_module(KaustuvPokharel
     QML_FILES desktop.qml
     SOURCES fontloader.h fontloader.cpp
     RESOURCES fonts/fonts.qrc
-<<<<<<< HEAD
-=======
     RESOURCES components/components.qrc
 )
->>>>>>> fontSyncLoading
+#to merge
+
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
