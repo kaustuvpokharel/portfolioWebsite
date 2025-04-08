@@ -9,7 +9,16 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 6.2 COMPONENTS Quick)
 
 # Correct WebAssembly linker options
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s -s ASSERTIONS=0")
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    add_link_options(
+        "-sWASM=1"
+        "-sINITIAL_MEMORY=67108864"
+        "-sMAXIMUM_MEMORY=536870912"
+        "-sALLOW_MEMORY_GROWTH=1"
+        "-sSTACK_SIZE=5242880"
+        "--bind"
+    )
+endif()
 
 qt_add_executable(KaustuvPokharel
     main.cpp

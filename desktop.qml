@@ -1,10 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
-import QtQuick.Controls
 import "./components"
 
-Page {
+Item {
     id: page
     anchors.fill: parent
 
@@ -13,90 +12,114 @@ Page {
         id: bg
         anchors.fill: parent
         color: pullc.color("black")
-        layer.enabled: true  // Caches static background
+        layer.enabled: true
         layer.smooth: true
     }
 
-    // Header Section (Always Visible)
+    // Header loaded via QRC but positioned like old layout
     Loader {
-        id: headerComponent
+        id: headerLoader
         source: "qrc:/header.qml"
         active: true
         anchors.top: parent.top
-        anchors.topMargin: 30
-        z: 1  // Ensure header stays on top
+        anchors.horizontalCenter: parent.horizontalCenter
+        z: 10
+    }
+    Connections {
+        target: headerLoader
+        onLoaded: {
+            if (headerLoader.item)
+                headerLoader.item.mainScrollRef = mainScroll;
+        }
     }
 
-
-
-    // Main Content Area
-    Flickable {
-        id: mainScroll
-        anchors.top: headerComponent.bottom
-        anchors.bottom: parent.bottom
+    Rectangle {
+        id: contentWrapper
+        anchors.top: headerLoader.bottom
+        anchors.topMargin: 50
         anchors.left: parent.left
         anchors.right: parent.right
-        contentWidth: parent.width
-        contentHeight: Math.max(contentLayout.implicitHeight, window.height * 2)
+        anchors.bottom: parent.bottom
+        color: "transparent"
         clip: true
 
-        flickDeceleration: 300       // Smoother deceleration for WebAssembly
-        maximumFlickVelocity: 2000   // More responsive flicks
-        pressDelay: 0
-        boundsBehavior: Flickable.DragAndOvershootBounds  // Adds a smooth bounce effect
-
-        // Content Layout
-        ColumnLayout {
-            id: contentLayout
+        RowLayout {
+            spacing: 100
             anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 40
-            width: Math.min(parent.width, 800)  // Responsive layout for large/small screens
+            anchors.top: parent.top
+            anchors.topMargin: 0
 
             Loader {
-                id: profile
+                id: profileLoader
                 source: "qrc:/profileCard.qml"
                 active: true
+                Layout.alignment: Qt.AlignTop
             }
 
-            Loader {
-                id: softwareEngLoader
-                source: "qrc:/SoftwareEng.qml"
-                active: true
-            }
 
-            // Lazy Load Other Sections (Based on Scroll Position)
-            Loader {
-                id: projectsLoader
-                source: "qrc:/Projects.qml"
-                active: mainScroll.contentY > 200
-            }
-            Loader {
-                id: experienceLoader
-                source: "qrc:/Experience.qml"
-                active: mainScroll.contentY > 400
-            }
-            Loader {
-                id: educationLoader
-                source: "qrc:/Education.qml"
-                active: mainScroll.contentY > 600
-            }
-            Loader {
-                id: contactLoader
-                source: "qrc:/Contact.qml"
-                active: mainScroll.contentY > 800
-            }
+            Flickable {
+                id: mainScroll
+                Layout.preferredWidth: 700
+                Layout.preferredHeight: window.height
+                contentWidth: width
+                contentHeight: contentLayout.implicitHeight + 160
+                clip: true
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: -35
 
-            // Footer Text
-            Text {
-                id: copy
-                text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
-                font.family: fonts.medium
-                font.weight: 500
-                font.pixelSize: Math.max(window.width * 0.015, 10)
-                color: pullc.color("neon")
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: Text.Wrap
-                Layout.topMargin: 20
+                flickDeceleration: 300
+                maximumFlickVelocity: 2000
+                pressDelay: 0
+                boundsBehavior: Flickable.DragAndOvershootBounds
+
+                ColumnLayout {
+                    id: contentLayout
+                    width: parent.width
+                    spacing: 40
+
+                    Loader {
+                        id: softwareEngComponent
+                        source: "qrc:/SoftwareEng.qml"
+                        active: true
+                    }
+
+                    Loader {
+                        id: projectComponent
+                        source: "qrc:/Projects.qml"
+                        active: mainScroll.contentY > 200
+                    }
+
+                    Loader {
+                        id: experienceComponent
+                        source: "qrc:/Experience.qml"
+                        active: mainScroll.contentY > 400
+                    }
+
+                    Loader {
+                        id: educationComponent
+                        source: "qrc:/Education.qml"
+                        active: mainScroll.contentY > 600
+                    }
+
+                    Loader {
+                        id: contactComponent
+                        source: "qrc:/Contact.qml"
+                        active: mainScroll.contentY > 800
+                    }
+
+                    Text {
+                        id: copy
+                        text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
+                        font.family: fonts.medium
+                        font.weight: 500
+                        font.pixelSize: Math.max(window.width * 0.010, 10)
+                        color: pullc.color("neon")
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        Layout.topMargin: 70
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                }
             }
         }
     }
