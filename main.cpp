@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, false);
     qputenv("QT_SCALE_FACTOR", "1");
 
     //Source files registered to connection into QML:

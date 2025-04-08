@@ -8,6 +8,7 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 6.2 COMPONENTS Quick)
 
+<<<<<<< HEAD
 add_link_options(
     -s WASM=1
     # -s INITIAL_MEMORY=67108864 # 64MB in bytes
@@ -15,6 +16,19 @@ add_link_options(
     # -s ALLOW_MEMORY_GROWTH=1
     # -s STACK_SIZE=5242880 # 5MB in bytes
 )
+=======
+# Correct WebAssembly linker options
+if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    add_link_options(
+        "-sWASM=1"
+        "-sINITIAL_MEMORY=67108864"
+        "-sMAXIMUM_MEMORY=536870912"
+        "-sALLOW_MEMORY_GROWTH=1"
+        "-sSTACK_SIZE=5242880"
+        "--bind"
+    )
+endif()
+>>>>>>> fontSyncLoading
 
 qt_add_executable(KaustuvPokharel
     main.cpp
@@ -25,20 +39,18 @@ qt_add_qml_module(KaustuvPokharel
     VERSION 1.0
     QML_FILES main.qml
     QML_FILES mobile.qml
-    QML_FILES components/ProfileCard.qml
     SOURCES colorlist.h colorlist.cpp
     RESOURCES images/images.qrc
     RESOURCES icons/icons.qrc
-    QML_FILES components/Header.qml
-    QML_FILES components/SoftwareEng.qml
-    QML_FILES components/Projects.qml
-    QML_FILES components/Experience.qml
-    QML_FILES components/Education.qml
-    QML_FILES components/Contact.qml
     SOURCES emailsender.h emailsender.cpp
     QML_FILES desktop.qml
     SOURCES fontloader.h fontloader.cpp
     RESOURCES fonts/fonts.qrc
+<<<<<<< HEAD
+=======
+    RESOURCES components/components.qrc
+)
+>>>>>>> fontSyncLoading
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

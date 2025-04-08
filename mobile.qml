@@ -1,122 +1,115 @@
 import QtQuick
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
-import QtQuick.Controls
 import "./components"
 
-Page
-{
-    Rectangle
-    {
+Item {
+    layer.enabled: true   // Caches the loaded ProfileCard component
+    layer.smooth: true    // Optional: smoothens the cached texture
+    layer.mipmap: true
+    Rectangle {
         anchors.fill: parent
         color: pullc.color("black")
     }
 
-    //anchors.fill: parent
-
-    Header
-    {
-        id:headerComponent
-        mainScrollRef: mainScroll
+    Loader {
+        id: headerLoader
+        source: "qrc:/header.qml"
+        active: true
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        z: 10
+    }
+    Connections {
+        target: headerLoader
+        onLoaded: {
+            if (headerLoader.item)
+                headerLoader.item.mainScrollRef = mainScroll;
+        }
     }
 
-    ColumnLayout
-    {
+    ColumnLayout {
         spacing: 100
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: headerComponent.bottom
+        anchors.top: headerLoader.bottom
         anchors.topMargin: 50
         anchors.bottom: window.bottom
 
-        Flickable
-        {
+        Flickable {
             id: mainScroll
-
-            //anchors.fill: parent
             Layout.preferredWidth: 700
             Layout.preferredHeight: window.height
             contentWidth: width
-            contentHeight: (window.width > 700) ? contentLayout.implicitHeight + 160 :  contentLayout.implicitHeight + 150
+            contentHeight: Math.max(contentLayout.implicitHeight + 200, window.height * 3) // Ensure scrollable area
             clip: true
-            //Layout.alignment: Qt.AlignTop
             Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: -35
+            Layout.topMargin: 35
 
             flickDeceleration: 100
             maximumFlickVelocity: 1000
             pressDelay: 0
             boundsBehavior: Flickable.StopAtBounds
 
-            // ScrollBar.vertical.policy: ScrollBar.AlwaysOff
-            // ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
-            // Rectangle
-            // {
-            //     id: contents
-            //     width: 700
-            //     height: 4800
-            //     color: "red"
-            //     visible: true
-            // }
-
-            ColumnLayout
-            {
+            ColumnLayout {
                 id: contentLayout
                 anchors.horizontalCenter: parent.horizontalCenter
+                spacing: 50
 
-                ProfileCard
+                // Force the first two sections to load for initial scrollability
+                Loader
                 {
-                    id: profilecard
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    id: profileComponent;
+                    source: "qrc:/profileCard.qml";
+                    active: true
+                    Layout.alignment: Qt.AlignHCenter
+                }
+                Loader
+                {
+                    id: softwareEngComponent;
+                    source: "qrc:/SoftwareEng.qml";
+                    active: true
+                    Layout.alignment: Qt.AlignHCenter
                 }
 
-                SoftwareEng
+                // Lazy-load remaining
+                Loader
                 {
-                    id: softwareEngComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    id: projectComponent;
+                    source: "qrc:/Projects.qml";
+                    active: mainScroll.visibleArea.yPosition > 0.1
+                    Layout.alignment: Qt.AlignHCenter
                 }
-
-                Projects
+                Loader
                 {
-                    id: projectComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    id: experienceComponent;
+                    source: "qrc:/Experience.qml";
+                    active: mainScroll.visibleArea.yPosition > 0.2
+                    Layout.alignment: Qt.AlignHCenter
                 }
-
-                Experience
+                Loader
                 {
-                    id: experienceComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    id: educationComponent;
+                    source: "qrc:/Education.qml";
+                    active: mainScroll.visibleArea.yPosition > 0.3
+                    Layout.alignment: Qt.AlignHCenter
                 }
-
-                Education
+                Loader
                 {
-                    id: educationComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
-                }
-
-                Contact
-                {
-                    id: contactComponent
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignCenter
+                    id: contactComponent;
+                    source: "qrc:/Contact.qml";
+                    active: mainScroll.visibleArea.yPosition > 0.4
+                    Layout.alignment: Qt.AlignHCenter
                 }
 
                 Text {
-                    id: copyRyght
-                    font.pixelSize: (window.width > 700) ? 15 : Math.max(window.width * 0.001, 8)
                     text: qsTr("<html>© 2025 <b>Kaustuv Pokharel</b> | Fueled by Coffee, C++ and Qt with WebAssembly</html>")
                     font.family: fonts.medium
                     font.weight: 500
+                    font.pixelSize: 8
                     color: pullc.color("neon")
-                    Layout.alignment:  Qt.AlignHCenter
+                    Layout.topMargin: 50
                 }
             }
-
-            // MouseArea
-            // {
-            //     anchors.fill: parent
-            //     onWheel: wheel => {
-            //         contentY -= wheel.angleDelta.y * 0.3
-            //     }
-            // }
         }
     }
 }

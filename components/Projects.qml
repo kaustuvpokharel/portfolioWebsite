@@ -5,6 +5,9 @@ import Qt5Compat.GraphicalEffects
 ColumnLayout
 {
     Layout.topMargin: (window.width > 1150) ? 100 : Math.max(window.width * 0.058, 20)
+    layer.enabled: true   // Caches the loaded ProfileCard component
+    layer.smooth: true    // Optional: smoothens the cached texture
+    layer.mipmap: true
     // anchors.top : parent.top
     // anchors.topMargin: 100
     Text {
