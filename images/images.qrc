@@ -6,7 +6,6 @@
         <file alias="bgCard">pexels-hngstrm-1939485.jpg</file>
     </qresource>
     <qresource prefix="/projects">
-        <file alias="rocketifyImg">rocketify.png</file>
         <file alias="astrovImg">astrovaProject.png</file>
         <file alias="firewall">frontEnd.jpeg</file>
         <file>foodiez.png</file>

@@ -1,4 +1,4 @@
-import QtQuick
+import QtQuick 2.15
 import com.colors 1.0
 import com.email 1.0
 import com.font 1.0

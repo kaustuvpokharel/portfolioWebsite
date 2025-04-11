@@ -241,13 +241,13 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered:
                 {
-                    resume.opacity = 0.7
+                    resume.opacity = (window.width > 500) ? 0.7 : 1
                 }
 
                 onExited:
@@ -335,13 +335,13 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered:
                 {
-                    youtube.opacity = 0.7
+                    youtube.opacity = (window.width > 500) ? 0.7 : 1
                 }
 
                 onExited:
