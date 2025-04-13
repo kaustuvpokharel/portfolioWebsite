@@ -4,10 +4,9 @@ import Qt5Compat.GraphicalEffects
 
 ColumnLayout
 {
-    layer.enabled: true   // Caches the loaded ProfileCard component
-    layer.smooth: true    // Optional: smoothens the cached texture
-    layer.mipmap: true
     id:softengLayer
+    property bool isDesktop: false
+
     Layout.topMargin: (window.width > 1150) ? 50 : Math.max(window.width * 0.058, 20)
     Text {
         id: software
@@ -241,13 +240,13 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered:
                 {
-                    resume.opacity = 0.7
+                    resume.opacity = (window.width > 500) ? 0.7 : 1
                 }
 
                 onExited:
@@ -335,13 +334,13 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered:
                 {
-                    youtube.opacity = 0.7
+                    youtube.opacity = (window.width > 500) ? 0.7 : 1
                 }
 
                 onExited:

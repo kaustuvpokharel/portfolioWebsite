@@ -2,77 +2,62 @@ import QtQuick 2.15
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
-ColumnLayout
-{
+ColumnLayout {
     spacing: 10
     Layout.alignment: Qt.AlignHCenter
     Layout.preferredWidth: pcMainRect.width
-    Rectangle
-    {
-        id: pcMainRect
-        Layout.preferredWidth:
-        {
-            if(window.width > 1150)
-            {
-                return 350
-            }
-            if(window.width > 700)
-            {
-                return mainScroll.width *0.9
-            }
-            else
-            {
-                return window.width*0.9
-            }
 
-        }
+    property Flickable mainScrollRef
+    property bool isDesktop: false
+
+    ListModel {
+        id: socialLinksModel
+
+        ListElement { icon: "qrc:/iconsStrong/githubIcon";    url: "https://github.com/kaustuvpokharel" }
+        ListElement { icon: "qrc:/iconsStrong/linkedIcon";    url: "https://www.linkedin.com/in/kaustuvpokharel/" }
+        ListElement { icon: "qrc:/iconsStrong/youtubeIcon";   url: "https://www.youtube.com/@K-A-L-I-" }
+        ListElement { icon: "qrc:/iconsStrong/behanceIcon";   url: "https://www.behance.net/kaustuvpokharel3" }
+        ListElement { icon: "qrc:/iconsStrong/emailIcon";     url: "mailto:kastuvpokharel@gmail.com" }
+    }
+
+    Rectangle {
+        id: pcMainRect
+        Layout.preferredWidth: window.width > 1150 ? 350 : window.width > 700 ? mainScroll.width * 0.9 : window.width * 0.9
         Layout.preferredHeight: 650
         Layout.alignment: Qt.AlignHCenter
-        color: pullc.color("white");
+        color: pullc.color("white")
         radius: 20
         clip: true
+
         Image {
-            id: bgImage
+            id: bgImage1
             source: "qrc:/bg/bgCard"
             anchors.fill: parent
             smooth: true
             fillMode: Image.PreserveAspectCrop
             opacity: 0.4
             layer.enabled: true
-            layer.effect: OpacityMask
-            {
-                maskSource: mask1
-            }
+            layer.effect: OpacityMask { maskSource: mask1 }
             asynchronous: false
         }
 
-        Rectangle
-        {
-            //mask for the background image used inside the profile card
-            id:mask1
-            anchors.fill: parent
-            visible: false
-            radius: 20
-        }
+        Rectangle { id: mask1; anchors.fill: parent; visible: false; radius: 20 }
 
-        ColumnLayout
-        {
-            spacing:20
+        ColumnLayout {
+            spacing: 20
             anchors.centerIn: parent
+
             Image {
-                id: profilePicture
-                source: "qrc:/profilepic"  // Add the correct file extension
+                source: "qrc:/profilepic"
                 Layout.preferredWidth: pcMainRect.width
                 Layout.preferredHeight: pcMainRect.height / 1.9
-                smooth: true
                 fillMode: Image.PreserveAspectFit
-                Layout.alignment: Qt.AlignCenter
+                smooth: true
                 asynchronous: false
+                Layout.alignment: Qt.AlignCenter
             }
 
-            Text
-            {
-                id: name
+            Text {
                 text: qsTr("Kaustuv Pokharel")
                 font.family: fonts.bold
                 font.weight: 700
@@ -81,22 +66,16 @@ ColumnLayout
                 Layout.alignment: Qt.AlignCenter
             }
 
-            Rectangle
-            {
-                id: textWrapper
+            Rectangle {
                 width: 260
                 height: 90
+                color: "Transparent"
                 Layout.alignment: Qt.AlignCenter
                 Layout.topMargin: 15
-                color: "Transparent"
 
-                Text
-                {
-
-                    id: introduction
+                Text {
                     text: qsTr("Software Engineering Student with background in CrossPlatform Application Development, Graphics Programming and GPGPU with C++.")
                     wrapMode: Text.WordWrap
-                    Layout.alignment: Qt.AlignCenter
                     font.pixelSize: 15
                     horizontalAlignment: Text.AlignHCenter
                     width: 260
@@ -107,216 +86,35 @@ ColumnLayout
                 }
             }
 
-            RowLayout
-            {
+            RowLayout {
                 spacing: 10
                 Layout.alignment: Qt.AlignCenter
                 Layout.topMargin: 15
 
-                Rectangle
-                {
-                    id: gIcon
-                    width: 35
-                    height: 35
-                    color: "Transparent"//pullc.color("gray")
-                    radius: 10
-                    Image {
-                        id: githubIcon
-                        source: "qrc:/iconsStrong/githubIcon"
-                        width: 25
-                        height: 25
-                        smooth: true
-                        fillMode: Image.PreserveAspectFit
-                        anchors.centerIn: parent
-                        asynchronous: false
-                    }
+                Repeater {
+                    model: socialLinksModel
 
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        propagateComposedEvents: true
-                        cursorShape: Qt.PointingHandCursor
+                    delegate: Rectangle {
+                        width: 35; height: 35; radius: 10
+                        color: "Transparent"
 
-                        onEntered:
-                        {
-                            gIcon.color = pullc.color("graylight")
-                        }
-                        onExited:
-                        {
-                            gIcon.color = "Transparent"
+                        Image {
+                            source: icon
+                            width: 25; height: 25
+                            anchors.centerIn: parent
+                            smooth: true
+                            fillMode: Image.PreserveAspectFit
+                            asynchronous: false
                         }
 
-                        onClicked:
-                        {
-                            Qt.openUrlExternally("https://github.com/kaustuvpokharel")
-                        }
-                    }
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
 
-                }
-
-                Rectangle
-                {
-                    id: lIcon
-                    width: 35
-                    height: 35
-                    color: "Transparent"//pullc.color("gray")
-                    radius: 10
-                    Image {
-                        id: linkedInIcon
-                        source: "qrc:/iconsStrong/linkedIcon"
-                        width: 25
-                        height: 25
-                        smooth: true
-                        fillMode: Image.PreserveAspectFit
-                        anchors.centerIn: parent
-                        asynchronous: false
-                    }
-
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        propagateComposedEvents: true
-                        cursorShape: Qt.PointingHandCursor
-
-                        onEntered:
-                        {
-                            lIcon.color = pullc.color("graylight")
-                        }
-                        onExited:
-                        {
-                            lIcon.color = "Transparent"
-                        }
-
-                        onClicked:
-                        {
-                            Qt.openUrlExternally("https://www.linkedin.com/in/kaustuvpokharel/")
-                        }
-                    }
-
-                }
-
-                Rectangle
-                {
-                    id: yIcon
-                    width: 35
-                    height: 35
-                    color: "Transparent"//pullc.color("gray")
-                    radius: 10
-                    Image {
-                        id: youtubeIcon
-                        source: "qrc:/iconsStrong/youtubeIcon"
-                        width: 25
-                        height: 25
-                        smooth: true
-                        fillMode: Image.PreserveAspectFit
-                        anchors.centerIn: parent
-                        asynchronous: false
-                    }
-
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        propagateComposedEvents: true
-                        cursorShape: Qt.PointingHandCursor
-
-                        onEntered:
-                        {
-                            yIcon.color = pullc.color("graylight")
-                        }
-                        onExited:
-                        {
-                            yIcon.color = "Transparent"
-                        }
-
-                        onClicked:
-                        {
-                            Qt.openUrlExternally("https://www.youtube.com/@K-A-L-I-")
-                        }
-                    }
-
-                }
-
-                Rectangle
-                {
-                    id: bIcon
-                    width: 35
-                    height: 35
-                    color: "Transparent"//pullc.color("gray")
-                    radius: 10
-                    Image {
-                        id: behanceIcon
-                        source: "qrc:/iconsStrong/behanceIcon"
-                        width: 25
-                        height: 25
-                        smooth: true
-                        fillMode: Image.PreserveAspectFit
-                        anchors.centerIn: parent
-                        asynchronous: false
-                    }
-
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        propagateComposedEvents: true
-                        cursorShape: Qt.PointingHandCursor
-
-                        onEntered:
-                        {
-                            bIcon.color = pullc.color("graylight")
-                        }
-                        onExited:
-                        {
-                            bIcon.color = "Transparent"
-                        }
-
-                        onClicked:
-                        {
-                            Qt.openUrlExternally("https://www.behance.net/kaustuvpokharel3")
-                        }
-                    }
-                }
-
-                Rectangle
-                {
-                    id: eIcon
-                    width: 35
-                    height: 35
-                    color: "Transparent"//pullc.color("gray")
-                    radius: 10
-                    Image {
-                        id: emailIcon
-                        source: "qrc:/iconsStrong/emailIcon"
-                        width: 25
-                        height: 25
-                        smooth: true
-                        fillMode: Image.PreserveAspectFit
-                        anchors.centerIn: parent
-                        asynchronous: false
-                    }
-
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        propagateComposedEvents: true
-                        cursorShape: Qt.PointingHandCursor
-
-                        onEntered:
-                        {
-                            eIcon.color = pullc.color("graylight")
-                        }
-                        onExited:
-                        {
-                            eIcon.color = "Transparent"
-                        }
-
-                        onClicked:
-                        {
-                            Qt.openUrlExternally("mailto:kastuvpokharel@gmail.com")
+                            onEntered: parent.color = pullc.color("graylight")
+                            onExited: parent.color = "Transparent"
+                            onClicked: Qt.openUrlExternally(url)
                         }
                     }
                 }
@@ -324,58 +122,29 @@ ColumnLayout
         }
     }
 
-    Rectangle
-    {
+    Rectangle {
         id: cppText
-        Layout.preferredWidth:
-        {
-            if(window.width > 1150)
-            {
-                return 350
-            }
-            if(window.width > 700)
-            {
-                return mainScroll.width *0.9
-            }
-            else
-            {
-                return window.width*0.9
-            }
-
-        }
+        Layout.preferredWidth: window.width > 1150 ? 350 : window.width > 700 ? mainScroll.width * 0.9 : window.width * 0.9
         Layout.preferredHeight: 30
-        color: pullc.color("neon");
+        color: pullc.color("neon")
         radius: 30
         clip: true
         Layout.alignment: Qt.AlignHCenter
 
         Image {
-            id: bgImage1
             source: "qrc:/bg/bgCard"
             anchors.fill: parent
             smooth: true
             fillMode: Image.PreserveAspectCrop
             opacity: 0
             layer.enabled: true
-            layer.effect: OpacityMask
-            {
-                maskSource: mask2
-            }
+            layer.effect: OpacityMask { maskSource: mask2 }
             asynchronous: false
         }
 
-        Rectangle
-        {
-            //mask for the background image used inside the profile card
-            id:mask2
-            anchors.fill: parent
-            visible: false
-            radius: 15
-        }
+        Rectangle { id: mask2; anchors.fill: parent; visible: false; radius: 15 }
 
-        Text
-        {
-            id: textcp
+        Text {
             text: qsTr("Built with C++ in QT-QML: WebAssembly")
             anchors.centerIn: parent
             font.pixelSize: 15
@@ -386,31 +155,20 @@ ColumnLayout
             color: pullc.color("gray")
         }
 
-
-        MouseArea
-        {
+        MouseArea {
             anchors.fill: parent
             hoverEnabled: true
-            propagateComposedEvents: true
             cursorShape: Qt.PointingHandCursor
 
-            onEntered:
-            {
-                cppText.color = pullc.color("white");
+            onEntered: {
+                cppText.color = pullc.color("white")
                 bgImage1.opacity = 0.4
             }
-
-            onExited:
-            {
-                cppText.color = pullc.color("neon");
+            onExited: {
+                cppText.color = pullc.color("neon")
                 bgImage1.opacity = 0
             }
-
-            onClicked:
-            {
-                Qt.openUrlExternally("https://github.com/kaustuvpokharel/portfolioWebsite")
-            }
-
+            onClicked: Qt.openUrlExternally("https://github.com/kaustuvpokharel/portfolioWebsite")
         }
     }
 }
