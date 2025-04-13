@@ -1,18 +1,19 @@
 import QtQuick 2.15
-import com.colors 1.0
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
 ColumnLayout
 {
     id:softengLayer
+    property bool isDesktop: false
+
     Layout.topMargin: (window.width > 1150) ? 50 : Math.max(window.width * 0.058, 20)
     Text {
         id: software
         text: qsTr("SOFTWARE")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize: (window.width > 1150) ? 110 : Math.max(window.width * 0.058, 50)
-        font.weight: 800
+        font.weight: 700
         color: pullc.color("white")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
     }
@@ -20,12 +21,12 @@ ColumnLayout
     Text {
         id: engineer
         text: qsTr("ENGINEER")
-        font.family: pBlack.name
+        font.family: fonts.black
         font.pixelSize:  (window.width > 1150) ? 110 :  Math.max(window.width * 0.058, 50)
-        font.weight: 800
+        font.weight: 700
         color: pullc.color("gray")
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
-        Layout.topMargin: (window.width > 1150) ? -50 :  (window.width * 0.027) - 35
+        Layout.topMargin: (window.width > 1150) ? -35 :  (window.width * 0.027) - 25
     }
 
     Rectangle
@@ -40,12 +41,13 @@ ColumnLayout
         Text
         {
             id:discript
-            text: qsTr("<html><b>Core Skills:</b> C++, C language, CMake, Linux, Git, Github, Jira, Blender 3D<br />
-<b>Frameworks/Libraries:</b> QT, QML, Vulkan, STL, Socket, Boost, Tensorflow, Pcap, OpenCL, OpenCV<br />
-<b>Basic Skills:</b> Python, JavaScript, HTML, CSS, SQL, Microsoft Azure, Figma, Confluence<br />
-<b>Concepts:</b> Agile Methods, OOP, Graphics Programming, Parallel/Concurrent Programming, Multi-threading, Memory Management, Unit Test, Scrum, CI/CD</html>")
-            font.family: pRegular.name
-            font.pixelSize: (window.width > 1150) ? 16 : Math.max(window.width * 0.001, 14)
+            text: qsTr("<html><b>Core Skills:</b> C++, C, CMake, Linux, Git, Github, Jira, Blender 3D<br />
+<b>Frameworks/Libraries:</b> QT, QML, Vulkan, GLSL, ImGui, SYCL, STL, Socket, Boost, Pcap<br />
+<b>Basic Skills:</b> Python, JavaScript, HTML/CSS, SQL, Microsoft Azure, Figma, Confluence<br />
+<b>Concepts:</b> Data Structures and Algorithms (DSA), Graphics Pipeline, GPGPU, Parallel/Concurrent Programming, RAII, OOP, Multi-threading, Memory Management, Unit Testing, Agile, Scrum, CI/CD</html>")
+            font.family: fonts.regular
+            font.weight: 400
+            font.pixelSize: (window.width > 1150) ? 18 : Math.max(window.width * 0.001, 14)
             horizontalAlignment: (window.width > 1150) ? Text.AlignJustify : Text.AlignHCenter | Text.AlignJustify
             anchors.centerIn: parent
             width:(window.width > 1150) ? 650 :  Math.max(window.width*0.8, 360)
@@ -61,15 +63,15 @@ ColumnLayout
         columns: 3
         columnSpacing: (window.width > 1150) ? 30 : (window.width * 0.07)
         rowSpacing: (window.width > 1150) ? -10 : (window.width * 0.0095) - 10
-        Layout.topMargin: (window.width > 1150) ? 100 : (window.width * 0.0027)
+        Layout.topMargin: (window.width > 1150) ? 80 : (window.width * 0.0020)
         Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
 
         Text {
             id: yieNum
             text: qsTr("+2")
-            font.family: pSemibold.name
+            font.family: fonts.bold
             font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
-            font.weight: 600
+            font.weight: 700
             color: pullc.color("white")
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
@@ -77,9 +79,9 @@ ColumnLayout
         Text {
             id: pcNum
             text: qsTr("+10")
-            font.family: pSemibold.name
+            font.family: fonts.bold
             font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
-            font.weight: 600
+            font.weight: 700
             color: pullc.color("white")
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
@@ -87,9 +89,9 @@ ColumnLayout
         Text {
             id: cwNum
             text: qsTr("+3")
-            font.family: pSemibold.name
+            font.family: fonts.bold
             font.pixelSize:  (window.width > 1150) ? 70 :  Math.max(window.width * 0.088, 30)
-            font.weight: 600
+            font.weight: 700
             color: pullc.color("white")
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignHCenter
         }
@@ -105,7 +107,8 @@ ColumnLayout
             {
                 id:yie
                 text: qsTr("YEARS OF EXPERIENCE")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize:  (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
                 horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
                 width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
@@ -125,7 +128,8 @@ ColumnLayout
             {
                 id:pc
                 text: qsTr("PROJECTS COMPLETED")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
                 horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
                 width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
@@ -145,7 +149,8 @@ ColumnLayout
             {
                 id:cw
                 text: qsTr("COMPANIES WORKED WITH")
-                font.family: pRegular.name
+                font.family: fonts.regular
+                font.weight: 400
                 font.pixelSize: (window.width > 1150) ? 15 : Math.max(window.width * 0.008, 13)
                 horizontalAlignment: (window.width > 1150) ? Text.AlignLeft : Text.AlignHCenter
                 width: (window.width > 1150) ? 150 : Math.max(window.width * 0.095, 100)
@@ -171,27 +176,27 @@ ColumnLayout
             Layout.preferredWidth: (window.width > 700) ? 310 : window.width*0.9
             Layout.preferredHeight: 250
             Layout.alignment: (window.width > 1150) ? Qt.AlignLeft : Qt.AlignCenter
-            // Image {
-            //     id: bgImage
-            //     source: "qrc:/bg/bgCard"
-            //     anchors.fill: parent
-            //     smooth: true
-            //     fillMode: Image.PreserveAspectCrop
-            //     opacity: 0.2
-            //     layer.enabled: true
-            //     layer.effect: OpacityMask
-            //     {
-            //         maskSource: mask1
-            //     }
-            // }
-            // Rectangle
-            // {
-            //     //mask for the background image used inside the profile card
-            //     id:mask1
-            //     anchors.fill: parent
-            //     visible: false
-            //     radius: 10
-            // }
+            Image {
+                id: bgImage
+                source: "qrc:/youtubePlaylist/gamePreview.png"
+                anchors.fill: parent
+                smooth: true
+                fillMode: Image.PreserveAspectCrop
+                opacity: 0.7
+                layer.enabled: true
+                layer.effect: OpacityMask
+                {
+                    maskSource: mask1
+                }
+            }
+            Rectangle
+            {
+                //mask for the background image used inside the profile card
+                id:mask1
+                anchors.fill: parent
+                visible: false
+                radius: 10
+            }
 
             ColumnLayout
             {
@@ -203,11 +208,12 @@ ColumnLayout
 
                 Image {
                     id: rIcon
-                    source: "qrc:/softwareEng/resume"
+                    source: "qrc:/softwareEng/youtubeWhite"
                     Layout.preferredWidth: 45
                     Layout.preferredHeight: 45
                     smooth: true
                     fillMode: Image.PreserveAspectFit
+                    asynchronous: false
                 }
                 Rectangle
                 {
@@ -218,8 +224,9 @@ ColumnLayout
                     Text
                     {
                         id: resumeT
-                        text: qsTr("RESUME it is—roast or toast?")
-                        font.family: pSemibold.name
+                        text: qsTr("FireShip — Game tutorial Playlist")
+                        font.family: fonts.bold
+                        font.weight: 700
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 250 : resume.width*0.8
@@ -233,13 +240,13 @@ ColumnLayout
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered:
                 {
-                    resume.opacity = 0.7
+                    resume.opacity = (window.width > 500) ? 0.7 : 1
                 }
 
                 onExited:
@@ -249,7 +256,7 @@ ColumnLayout
 
                 onClicked:
                 {
-                    Qt.openUrlExternally("https://dev.to/kastuv")
+                    Qt.openUrlExternally("https://youtube.com/playlist?list=PLeYV3WjZWmHyYUe-BElUVNeFYTmpOQ9Xq&si=2tj9ioXoycysRtZU")
                 }
             }
 
@@ -301,6 +308,7 @@ ColumnLayout
                     Layout.preferredHeight: 45
                     smooth: true
                     fillMode: Image.PreserveAspectFit
+                    asynchronous: false
                 }
                 Rectangle
                 {
@@ -311,8 +319,9 @@ ColumnLayout
                     Text
                     {
                         id: yText
-                        text: qsTr("Blogs it is—roast or toast?")
-                        font.family: pSemibold.name
+                        text: qsTr("Resume it is—roast or toast?")
+                        font.family: fonts.bold
+                        font.weight: 700
                         font.pixelSize: 25
                         // horizontalAlignment: Text.AlignHCenter
                         width: (window.width > 700) ? 250 : youtube.width*0.8
@@ -320,19 +329,18 @@ ColumnLayout
                         wrapMode: Text.Wrap
                     }
                 }
-
             }
 
             MouseArea
             {
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: (window.width > 500) ? true : false
                 propagateComposedEvents: true
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered:
                 {
-                    youtube.opacity = 0.7
+                    youtube.opacity = (window.width > 500) ? 0.7 : 1
                 }
 
                 onExited:
@@ -342,7 +350,7 @@ ColumnLayout
 
                 onClicked:
                 {
-                    Qt.openUrlExternally("https://dev.to/kastuv")
+                    Qt.openUrlExternally("https://drive.google.com/file/d/1opCDExyyeEA0Kvw-CnTrf3cRCUmMRcmP/view?usp=sharing")
                 }
             }
 
