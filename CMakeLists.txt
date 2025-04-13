@@ -28,12 +28,10 @@ qt_add_qml_module(KaustuvPokharel
     URI KaustuvPokharel
     VERSION 1.0
     QML_FILES main.qml
-    QML_FILES mobile.qml
     SOURCES colorlist.h colorlist.cpp
     RESOURCES images/images.qrc
     RESOURCES icons/icons.qrc
     SOURCES emailsender.h emailsender.cpp
-    QML_FILES desktop.qml
     SOURCES fontloader.h fontloader.cpp
     RESOURCES fonts/fonts.qrc
     RESOURCES components/components.qrc

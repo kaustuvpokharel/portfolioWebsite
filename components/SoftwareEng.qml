@@ -4,10 +4,9 @@ import Qt5Compat.GraphicalEffects
 
 ColumnLayout
 {
-    layer.enabled: true   // Caches the loaded ProfileCard component
-    layer.smooth: true    // Optional: smoothens the cached texture
-    layer.mipmap: true
     id:softengLayer
+    property bool isDesktop: false
+
     Layout.topMargin: (window.width > 1150) ? 50 : Math.max(window.width * 0.058, 20)
     Text {
         id: software

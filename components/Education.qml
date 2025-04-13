@@ -1,13 +1,9 @@
 import QtQuick 2.15
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
 
 ColumnLayout {
     spacing: 10
     Layout.alignment: Qt.AlignHCenter
-    layer.enabled: true   // Caches the loaded ProfileCard component
-    layer.smooth: true    // Optional: smoothens the cached texture
-    layer.mipmap: true
 
     ListModel {
         id: educationModel

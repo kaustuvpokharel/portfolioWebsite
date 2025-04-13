@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Dialogs
-import Qt5Compat.GraphicalEffects
 
 ColumnLayout {
     id: contactForm

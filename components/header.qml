@@ -2,96 +2,372 @@ import QtQuick 2.15
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
-Rectangle {
+Rectangle
+{
     id: header
     width: 280
     height: 50
-    radius: 10
     color: pullc.color("gray")
+    radius: 10
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
     anchors.topMargin: 30
-    z: 1
-
-    // Reference to main Flickable
     property Flickable mainScrollRef
+    z : 1
 
-    // Map section keys to components
-    property var sectionMap: ({
-        "home": softwareEngComponent,
-        "project": projectComponent,
-        "experience": experienceComponent,
-        "academic": educationComponent,
-        "contact": contactComponent
-    })
-
-    ListModel {
-        id: navModel
-        ListElement { icon: "qrc:/header/home";       tooltip: "Home";       section: "home" }
-        ListElement { icon: "qrc:/header/project";    tooltip: "Projects";   section: "project" }
-        ListElement { icon: "qrc:/header/experience"; tooltip: "Experience"; section: "experience" }
-        ListElement { icon: "qrc:/header/education";  tooltip: "Academic";   section: "academic" }
-        ListElement { icon: "qrc:/header/contact";    tooltip: "Contact";    section: "contact" }
-    }
-
-    RowLayout {
+    RowLayout
+    {
         anchors.centerIn: parent
         spacing: 20
 
-        Repeater {
-            model: navModel
+        Rectangle
+        {
+            id: hIcon
+            width: 35
+            height: 35
+            color: "Transparent"//pullc.color("gray")
+            radius: 10
+            Image {
+                id: homeIcon
+                source: "qrc:/header/home"
+                width: 28
+                height: 28
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+                anchors.centerIn: parent
+                asynchronous: false
+            }
 
-            delegate: Rectangle {
-                width: 35
-                height: 35
-                radius: 10
-                color: "Transparent"
-
-                Image {
-                    source: model.icon
-                    width: 25
-                    height: 25
-                    anchors.centerIn: parent
-                    fillMode: Image.PreserveAspectFit
-                    smooth: true
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+                onEntered:
+                {
+                    load1.active = true
+                }
+                onExited:
+                {
+                    load1.active = false
                 }
 
-                MouseArea {
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-
-                    onEntered: tooltipLoader.active = true
-                    onExited: tooltipLoader.active = false
-
-                    onClicked: {
-                        if (sectionMap[model.section])
-                            mainScrollRef.contentY = sectionMap[model.section].y
-                    }
+                onClicked:
+                {
+                    mainScrollRef.contentY = softwareEngComponent.y
                 }
+            }
 
-                Loader {
-                    id: tooltipLoader
-                    active: false
-                    anchors.top: parent.bottom
-                    anchors.topMargin: 15
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    sourceComponent: Rectangle {
-                        width: (model.tooltip.length * 7) + 10
+            Loader
+            {
+                id: load1
+                anchors.top: parent.bottom
+                anchors.topMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                active: false
+                sourceComponent:
+                    Rectangle
+                    {
+                        id: tooltipHome
+                        width: 50
                         height: 20
                         color: pullc.color("gray")
                         radius: 5
 
-                        Text {
-                            text: model.tooltip
-                            anchors.centerIn: parent
+                        Text
+                        {
+                            text: qsTr("Home")
                             color: pullc.color("white")
+                            anchors.centerIn: parent
                             font.family: fonts.regular
+                            font.weight: 400
                             font.pixelSize: 10
                         }
                     }
+
+            }
+
+        }
+
+        Rectangle
+        {
+            id: pIcon
+            width: 35
+            height: 35
+            color: "Transparent"//pullc.color("gray")
+            radius: 10
+            Image {
+                id: projectIcon
+                source: "qrc:/header/project"
+                width: 24
+                height: 24
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+                anchors.centerIn: parent
+                asynchronous: false
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    load2.active = true
                 }
+                onExited:
+                {
+                    load2.active = false
+                }
+
+                onClicked:
+                {
+                    mainScrollRef.contentY = projectComponent.y
+                }
+            }
+
+            Loader
+            {
+                id: load2
+                anchors.top: parent.bottom
+                anchors.topMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                active: false
+                sourceComponent:
+                    Rectangle
+                    {
+                        id: tooltipHome2
+                        width: 50
+                        height: 20
+                        color: pullc.color("gray")
+                        radius: 5
+
+                        Text
+                        {
+                            text: qsTr("Projects")
+                            color: pullc.color("white")
+                            anchors.centerIn: parent
+                            font.family: fonts.regular
+                            font.weight: 400
+                            font.pixelSize: 10
+                        }
+                    }
+
+            }
+
+        }
+
+        Rectangle
+        {
+            id: exIcon
+            width: 35
+            height: 35
+            color: "Transparent"//pullc.color("gray")
+            radius: 10
+            Image {
+                id: experienceIcon
+                source: "qrc:/header/experience"
+                width: 25
+                height: 25
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+                anchors.centerIn: parent
+                asynchronous: false
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    load3.active = true
+                }
+                onExited:
+                {
+                    load3.active = false
+                }
+
+                onClicked:
+                {
+                    mainScrollRef.contentY = experienceComponent.y
+                }
+            }
+
+            Loader
+            {
+                id: load3
+                anchors.top: parent.bottom
+                anchors.topMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                active: false
+                sourceComponent:
+                    Rectangle
+                    {
+                        id: tooltipHome3
+                        width: 65
+                        height: 20
+                        color: pullc.color("gray")
+                        radius: 5
+
+                        Text
+                        {
+                            text: qsTr("Experience")
+                            color: pullc.color("white")
+                            anchors.centerIn: parent
+                            font.family: fonts.regular
+                            font.weight: 400
+                            font.pixelSize: 10
+                        }
+                    }
+
+            }
+
+        }
+
+        Rectangle
+        {
+            id: eIcon
+            width: 35
+            height: 35
+            color: "Transparent"//pullc.color("gray")
+            radius: 10
+            Image {
+                id: educationIcon
+                source: "qrc:/header/education"
+                width: 25
+                height: 25
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+                anchors.centerIn: parent
+                asynchronous: false
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    load4.active = true
+                }
+                onExited:
+                {
+                    load4.active = false
+                }
+
+                onClicked:
+                {
+                   mainScrollRef.contentY = educationComponent.y
+                }
+            }
+
+            Loader
+            {
+                id: load4
+                anchors.top: parent.bottom
+                anchors.topMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                active: false
+                sourceComponent:
+                    Rectangle
+                    {
+                        id: tooltipHome4
+                        width: 65
+                        height: 20
+                        color: pullc.color("gray")
+                        radius: 5
+
+                        Text
+                        {
+                            text: qsTr("Academic")
+                            color: pullc.color("white")
+                            anchors.centerIn: parent
+                            font.family: fonts.regular
+                            font.weight: 400
+                            font.pixelSize: 10
+                        }
+                    }
+
+            }
+        }
+
+        Rectangle
+        {
+            id: cIcon
+            width: 35
+            height: 35
+            color: "Transparent"//pullc.color("gray")
+            radius: 10
+            Image {
+                id:contactIcon
+                source: "qrc:/header/contact"
+                width: 25
+                height: 25
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+                anchors.centerIn: parent
+                asynchronous: false
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    load5.active = true
+                }
+                onExited:
+                {
+                    load5.active = false
+                }
+
+                onClicked:
+                {
+                    mainScrollRef.contentY = contactComponent.y
+                }
+            }
+            Loader
+            {
+                id: load5
+                anchors.top: parent.bottom
+                anchors.topMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                active: false
+                sourceComponent:
+                    Rectangle
+                    {
+                        id: tooltipHome5
+                        width: 54
+                        height: 20
+                        color: pullc.color("gray")
+                        radius: 5
+
+                        Text
+                        {
+                            text: qsTr("Contact")
+                            color: pullc.color("white")
+                            anchors.centerIn: parent
+                            font.family: fonts.regular
+                            font.weight: 400
+                            font.pixelSize: 10
+                        }
+                    }
+
             }
         }
     }

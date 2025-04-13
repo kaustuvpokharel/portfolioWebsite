@@ -5,9 +5,6 @@ import Qt5Compat.GraphicalEffects
 ColumnLayout {
     Layout.topMargin: (window.width > 1150) ? 100 : Math.max(window.width * 0.058, 20)
     spacing: 30
-    layer.enabled: true
-    layer.smooth: true
-    layer.mipmap: true
 
     ListModel {
         id: projectModel
@@ -100,7 +97,7 @@ ColumnLayout {
 
                 ColumnLayout {
                     Layout.alignment: Qt.AlignCenter
-                    spacing: (window.width > 500) ? 20 : -100
+                    spacing: (window.width > 500) ? 20 : -window.width * 0.01
 
                     Rectangle {
                         Layout.preferredHeight: (window.width > 700) ? 40 : titleText.height

@@ -4,9 +4,6 @@ import QtQuick.Layouts
 ColumnLayout {
     Layout.topMargin: (window.width > 1150) ? 100 : Math.max(window.width * 0.058, 20)
     spacing: 30
-    layer.enabled: true
-    layer.smooth: true
-    layer.mipmap: true
 
     ListModel {
         id: experienceModel
